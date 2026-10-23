@@ -26,6 +26,24 @@
   --max-width: 480px;
 }
 
+/* Oculta marca d'água e badges flutuantes da Netlify */
+iframe[src*="netlify"],
+iframe[id*="netlify"],
+iframe[class*="netlify"],
+div[id*="netlify"],
+div[class*="netlify-badge"],
+.netlify-badge,
+[data-netlify-badge],
+#netlify-badge,
+netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
 /* ===== RESET ===== */
 *,
 *::before,

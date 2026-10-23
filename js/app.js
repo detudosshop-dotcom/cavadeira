@@ -1,3 +1,40 @@
+// Oculta marcas d'água e badges da Netlify
+(function() {
+  function removerBadgeNetlify() {
+    document.querySelectorAll('iframe, div, a, netlify-badge').forEach(function(el) {
+      try {
+        var src = (el.getAttribute('src') || '').toLowerCase();
+        var id = (el.id || '').toLowerCase();
+        var cls = (typeof el.className === 'string' ? el.className : '').toLowerCase();
+        var txt = (el.innerText || el.textContent || '').toLowerCase();
+        if (
+          src.indexOf('netlify') !== -1 ||
+          id.indexOf('netlify') !== -1 ||
+          cls.indexOf('netlify') !== -1 ||
+          (el.tagName && el.tagName.toLowerCase().indexOf('netlify') !== -1) ||
+          txt.indexOf('powered by netlify') !== -1
+        ) {
+          if (el.tagName !== 'SCRIPT' && src.indexOf('/api/') === -1) {
+            el.style.setProperty('display', 'none', 'important');
+            el.style.setProperty('visibility', 'hidden', 'important');
+            el.style.setProperty('opacity', '0', 'important');
+            if (el.parentNode) el.parentNode.removeChild(el);
+          }
+        }
+      } catch (e) {}
+    });
+  }
+  removerBadgeNetlify();
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', removerBadgeNetlify);
+  }
+  window.addEventListener('load', removerBadgeNetlify);
+  try {
+    var obs = new MutationObserver(removerBadgeNetlify);
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+})();
+
 // ===== CARRINHO - gerenciamento via localStorage =====
 const CART_KEY = 'famosinhos_cart';
 
