@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.local
+*.log
+
+# Netlify local
+.netlify/
+
+# Backups antigos com chaves (NAO subir em repo publico)
+server.js.BACKUP_*
+server_backup.js
+server_flevopay_backup.js
+server_mangopay_backup.js
+teste_resposta_sealpay.js

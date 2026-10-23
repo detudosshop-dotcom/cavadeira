@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Carrinho - Famosinhos Shop</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Estilos Premium do Carrinho Shopee Style */
+    body {
+      background-color: #f5f5f5 !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .app-container {
+      background-color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 120px;
+    }
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      height: 54px;
+    }
+    .header-title-wrapper {
+      flex: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #000;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .header-subtitle {
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .header-subtitle svg {
+      width: 10px;
+      height: 10px;
+      stroke: #888;
+    }
+    .header-edit-btn {
+      font-size: 14px;
+      color: #333;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* Bloco de Endereço / CPF no Topo */
+    .address-bar-box {
+      background: #fff;
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: 13px;
+      color: #333;
+    }
+    .address-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+    }
+    .address-bar-left svg {
+      color: #ff2b56;
+      flex-shrink: 0;
+    }
+
+    /* Estilo Checkbox customizado Shopee */
+    .shopee-checkbox-label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+    .shopee-checkbox {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 50%;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid #ccc;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      outline: none;
+      margin-right: 10px;
+    }
+    .shopee-checkbox:checked {
+      background: #ff2b56;
+      border-color: #ff2b56;
+    }
+    .shopee-checkbox:checked:after {
+      content: "";
+      width: 5px;
+      height: 9px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      margin-bottom: 2px;
+    }
+
+    /* Container de cada Lojinha/Produto */
+    .shop-section {
+      background: #fff;
+      margin-top: 8px;
+      border-bottom: 1px solid #eee;
+    }
+    .shop-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-bottom: 1px solid #f8f8f8;
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+    }
+    .shop-header-title {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .shop-header-title svg {
+      width: 12px;
+      height: 12px;
+      stroke: #666;
+    }
+    .shop-frete-banner {
+      background: #f0fafb;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #333;
+      font-weight: 500;
+    }
+    .shop-frete-banner svg {
+      color: #00b517;
+      flex-shrink: 0;
+    }
+
+    /* Item do Carrinho */
+    .cart-item-shopee {
+      display: flex;
+      padding: 14px 16px;
+      position: relative;
+    }
+    .cart-item-checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      margin-right: 6px;
+    }
+    .cart-item-img {
+      width: 82px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #f8f8f8;
+      border: 1px solid #f0f0f0;
+      flex-shrink: 0;
+    }
+    .cart-item-details {
+      flex: 1;
+      margin-left: 12px;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-item-name {
+      font-size: 13px;
+      color: #333;
+      font-weight: 500;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .cart-item-variation-btn {
+      align-self: flex-start;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 11px;
+      color: #666;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .cart-item-variation-btn svg {
+      width: 10px;
+      height: 10px;
+      stroke: #888;
+    }
+    .cart-item-price-qty-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+    .cart-item-price-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-item-price-current {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ff2b56;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .cart-item-price-old {
+      font-size: 11px;
+      color: #999;
+      text-decoration: line-through;
+      margin-top: 1px;
+    }
+    .cart-item-qty-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 24px;
+    }
+    .cart-qty-btn {
+      width: 26px;
+      height: 100%;
+      background: #fff;
+      border: none;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-qty-btn:active {
+      background: #eee;
+    }
+    .cart-qty-val {
+      width: 32px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #333;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Barra de Cupons */
+    .coupon-section {
+      background: #fff;
+      margin-top: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: #333;
+      cursor: pointer;
+      border-bottom: 1px solid #eee;
+    }
+    .coupon-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .coupon-left svg {
+      color: #ff2b56;
+    }
+    .coupon-right {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: #ff2b56;
+      font-weight: 500;
+    }
+    .coupon-right svg {
+      width: 14px;
+      height: 14px;
+      stroke: #ff2b56;
+    }
+
+    /* Seção Proteção do Cliente */
+    .cart-protection-box {
+      background: #fff;
+      margin-top: 8px;
+      padding: 14px 16px;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-protection-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8B4D0B;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .cart-protection-header-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cart-protection-header-left svg {
+      color: #8B4D0B;
+    }
+    .cart-protection-header svg {
+      width: 16 height 16;
+      stroke: #8B4D0B;
+    }
+    .cart-protection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 12px;
+      font-size: 11px;
+      color: #666;
+      padding-left: 4px;
+    }
+    .cart-protection-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Modal de Endereço / CPF */
+    .address-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .address-modal-content {
+      background: #fff;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px 12px 0 0;
+      padding: 20px;
+      box-sizing: border-box;
+      animation: slideUp 0.3s ease-out;
+    }
+    .address-modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #222;
+      text-align: center;
+    }
+    .address-input-group {
+      margin-bottom: 12px;
+    }
+    .address-input-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #555;
+    }
+    .address-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .address-modal-save-btn {
+      width: 100%;
+      background: #ff2b56;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    /* Rodapé do Carrinho Flutuante */
+    .shopee-cart-footer {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-top: 1px solid #e8e8e8;
+      box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)) 16px;
+      box-sizing: border-box;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #333;
+    }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-total-box {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .footer-total-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-size: 13px;
+      color: #333;
+      font-weight: 500;
+    }
+    .footer-total-price-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: #ff2b56;
+    }
+    .footer-total-saving {
+      font-size: 10px;
+      color: #ff2b56;
+      font-weight: 500;
+      margin-top: 1px;
+    }
+    .footer-checkout-btn {
+      background: #ff2b56;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Recomendados do Carrinho */
+    .cart-empty-shopping-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 24px;
+      background: #ff2b56;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="app-container">
+
+  <!-- HEADER -->
+  <header class="header">
+    <a class="header-back-btn" href="javascript:history.back()" aria-label="Voltar">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#222" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </a>
+    <div class="header-title-wrapper">
+      <h1 class="header-title" id="cart-header-title">Carrinho (0)</h1>
+      <div class="header-subtitle" id="address-header-trigger" onclick="openAddressModal()">
+        <span id="address-header-text">📍 Adicionar endereço de entrega e CPF</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+    <button class="header-edit-btn">Editar</button>
+  </header>
+
+  <!-- LISTA DE PRODUTOS OU VAZIO -->
+  <div class="page-content" id="cart-page-content" style="padding-top: 0;">
+    <!-- Renderizado por JS -->
+  </div>
+
+  <!-- RODAPÉ FLUTUANTE DO CARRINHO -->
+  <div class="shopee-cart-footer" id="shopee-cart-footer-bar" style="display:none">
+    <div class="footer-left">
+      <label class="shopee-checkbox-label">
+        <input type="checkbox" class="shopee-checkbox" id="select-all-checkbox" checked onchange="toggleSelectAll(this)">
+        <span>Tudo</span>
+      </label>
+    </div>
+    <div class="footer-right">
+      <div class="footer-total-box">
+        <div class="footer-total-price-row">
+          <span>Total:</span>
+          <span class="footer-total-price-val" id="footer-total-val">R$ 0,00</span>
+        </div>
+        <span class="footer-total-saving" id="footer-saving-val">R$ 0,50 de desconto</span>
+      </div>
+      <button class="footer-checkout-btn" id="footer-checkout-btn-action" onclick="irParaCheckout()">Finalizar compra (0)</button>
+    </div>
+  </div>
+
+  <!-- MODAL DE ENDEREÇO / CPF -->
+  <div class="address-modal-overlay" id="address-modal-box" style="display:none">
+    <div class="address-modal-content">
+      <h3 class="address-modal-title">Dados de Entrega</h3>
+      <div class="address-input-group">
+        <label class="address-input-label">Endereço Completo</label>
+        <input type="text" class="address-input" id="input-address-full" placeholder="Rua, Número, Bairro, Cidade - Estado">
+      </div>
+      <div class="address-input-group">
+        <label class="address-input-label">CPF</label>
+        <input type="text" class="address-input" id="input-cpf-full" placeholder="000.000.000-00">
+      </div>
+      <button class="address-modal-save-btn" onclick="saveAddressAndCPF()">Salvar e Confirmar</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/catalogo.js"></script>
+<script src="../js/app.js"></script>
+<script>
+// Dados locais e estado do carrinho
+let itemsSelecionados = {}; // Rastreia quais IDs de item estão selecionados no carrinho
+
+function loadAddress() {
+  const address = localStorage.getItem('user_address');
+  const textEl = document.getElementById('address-header-text');
+  if (address && textEl) {
+    // Exibe versão curta do endereço
+    const partes = address.split(',');
+    textEl.textContent = '📍 ' + (partes[partes.length - 2] || address).trim();
+  }
+}
+
+function openAddressModal() {
+  const modal = document.getElementById('address-modal-box');
+  const addressInput = document.getElementById('input-address-full');
+  const cpfInput = document.getElementById('input-cpf-full');
+  
+  if (addressInput) addressInput.value = localStorage.getItem('user_address') || '';
+  if (cpfInput) cpfInput.value = localStorage.getItem('user_cpf') || '';
+  
+  if (modal) modal.style.display = 'flex';
+}
+
+function closeAddressModal() {
+  const modal = document.getElementById('address-modal-box');
+  if (modal) modal.style.display = 'none';
+}
+
+function saveAddressAndCPF() {
+  const address = document.getElementById('input-address-full').value.trim();
+  const cpf = document.getElementById('input-cpf-full').value.trim();
+
+  if (!address || !cpf) {
+    showToast('Por favor, preencha todos os campos!');
+    return;
+  }
+
+  localStorage.setItem('user_address', address);
+  localStorage.setItem('user_cpf', cpf);
+  
+  loadAddress();
+  closeAddressModal();
+  showToast('Dados salvos com sucesso!');
+}
+
+function toggleSelectItem(id, checked) {
+  itemsSelecionados[id] = checked;
+  updateTotals();
+}
+
+function toggleSelectAll(checkbox) {
+  const checked = checkbox.checked;
+  const checkboxes = document.querySelectorAll('.cart-item-check');
+  checkboxes.forEach(cb => {
+    cb.checked = checked;
+    const id = cb.getAttribute('data-id');
+    itemsSelecionados[id] = checked;
+  });
+  updateTotals();
+}
+
+function updateTotals() {
+  const cart = getCart();
+  let total = 0;
+  let count = 0;
+  
+  cart.forEach(item => {
+    if (itemsSelecionados[item.id] !== false) {
+      total += item.preco * (item.qty || 1);
+      count += (item.qty || 1);
+    }
+  });
+
+  const totalFmt = 'R$ ' + total.toFixed(2).replace('.', ',');
+  const footerTotal = document.getElementById('footer-total-val');
+  const footerBtn = document.getElementById('footer-checkout-btn-action');
+  
+  if (footerTotal) footerTotal.textContent = totalFmt;
+  if (footerBtn) footerBtn.textContent = `Finalizar compra (${count})`;
+}
+
+function renderCart() {
+  const cart = getCart();
+  const content = document.getElementById('cart-page-content');
+  const footerBar = document.getElementById('shopee-cart-footer-bar');
+  const headerTitle = document.getElementById('cart-header-title');
+
+  if (headerTitle) {
+    headerTitle.textContent = `Carrinho (${getCartCount()})`;
+  }
+
+  if (!cart.length) {
+    content.innerHTML = `
+      <div style="text-align:center; padding: 48px 16px; background:#fff;">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.5" style="margin-bottom:12px;">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <div style="font-size:16px; font-weight:700; color:#333; margin-bottom:4px;">Seu carrinho está vazio</div>
+        <div style="font-size:13px; color:#888; margin-bottom:16px;">Que tal dar uma olhada nas nossas promoções de hoje?</div>
+        <a class="cart-empty-shopping-btn" href="../index.html">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Ir para a loja
+        </a>
+      </div>
+      
+      <!-- Você também pode gostar -->
+      <div style="padding: 16px; background: #f5f5f5;">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 12px; color: #222;">Você também pode gostar</div>
+        <div id="cart-related-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;"></div>
+      </div>`;
+      
+    if (footerBar) footerBar.style.display = 'none';
+    renderRelatedList();
+    return;
+  }
+
+  if (footerBar) footerBar.style.display = 'flex';
+
+  let html = '';
+  cart.forEach(item => {
+    // Rastreia se está marcado por padrão (true se não definido)
+    if (itemsSelecionados[item.id] === undefined) {
+      itemsSelecionados[item.id] = true;
+    }
+    const isChecked = itemsSelecionados[item.id] ? 'checked' : '';
+
+    let finalImg = item.img || '';
+    if (finalImg.startsWith('../')) {
+      finalImg = finalImg.substring(3);
+    }
+
+    const precoFmt = item.preco.toFixed(2).replace('.', ',');
+    const precoOrigFmt = (item.preco * 1.5).toFixed(2).replace('.', ','); // Gera preço riscado Shopee
+
+    html += `
+    <div class="shop-section">
+      <!-- Cabeçalho Lojinha Famosinhos Shop -->
+      <div class="shop-header">
+        <label class="shopee-checkbox-label">
+          <input type="checkbox" class="shopee-checkbox cart-item-check" data-id="${item.id}" ${isChecked} onchange="toggleSelectItem(${item.id}, this.checked)">
+        </label>
+        <span class="shop-header-title" onclick="window.location.href='../index.html'">
+          Famosinhos Shop
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+      </div>
+      
+      <!-- Tarja Frete Grátis -->
+      <div class="shop-frete-banner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="1" y="3" width="15" height="13" />
+          <polygon points="16 8 20 8 23 11 23 16 16 16" />
+          <circle cx="5.5" cy="18.5" r="2.5" />
+          <circle cx="18.5" cy="18.5" r="2.5" />
+        </svg>
+        <span>Você ganhou frete grátis!</span>
+      </div>
+
+      <!-- Item do Carrinho -->
+      <div class="cart-item-shopee">
+        <img class="cart-item-img" src="${finalImg}" alt="${item.nome}" onerror="this.src='../img/share-arrow.png'">
+        <div class="cart-item-details">
+          <div class="cart-item-name">${item.nome}</div>
+          
+          <button class="cart-item-variation-btn" onclick="openAddressModal()">
+            <span>${item.variacao || 'Padrão'}</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          
+          <div class="cart-item-price-qty-row">
+            <div class="cart-item-price-wrapper">
+              <div class="cart-item-price-current">
+                <span style="font-size: 11px; font-weight: normal; margin-right: 2px;">R$</span>
+                <span>${precoFmt}</span>
+              </div>
+              <span class="cart-item-price-old">R$ ${precoOrigFmt}</span>
+            </div>
+            
+            <div class="cart-item-qty-selector">
+              <button class="cart-qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+              <span class="cart-qty-val" id="qty-${item.id}">${item.qty}</span>
+              <button class="cart-qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // Bloco de Cupons e Descontos Aplicados
+  html += `
+  <div class="coupon-section" onclick="openAddressModal()">
+    <div class="coupon-left">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2z"/></svg>
+      <span>Desconto de R$ 0,50 aplicado</span>
+    </div>
+    <div class="coupon-right">
+      <span>Todos os cupons</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+  </div>`;
+
+  // Bloco Proteção do Cliente Oficial
+  html += `
+  <div class="cart-protection-box">
+    <div class="cart-protection-header" onclick="openAddressModal()">
+      <div class="cart-protection-header-left">
+        <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24,44c0,0,20-4,20-34L24,4L4,10C4,42,24,44,24,44z" fill="#8B4D0B"/>
+          <path d="M32.829,18L22,28.828L15.171,22L18,19.172l4,4l8-8L32.829,18z" fill="#fff"/>
+        </svg>
+        Proteção do cliente
+      </div>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </div>
+    <div class="cart-protection-grid">
+      <div class="cart-protection-item">✓ Devolução gratuita</div>
+      <div class="cart-protection-item">✓ Reembolso se algo der errado</div>
+      <div class="cart-protection-item">✓ Pagamento seguro</div>
+      <div class="cart-protection-item">✓ Reembolso automático por danos</div>
+    </div>
+  </div>`;
+
+  // Feed Recomendados
+  html += `
+  <div style="padding: 16px; background: #f5f5f5; margin-top: 8px;">
+    <div style="font-size: 15px; font-weight: 700; margin-bottom: 12px; color: #222;">Você também pode gostar</div>
+    <div id="cart-related-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;"></div>
+  </div>`;
+
+  content.innerHTML = html;
+  
+  renderRelatedList();
+  updateTotals();
+}
+
+function renderRelatedList() {
+  const grid = document.getElementById('cart-related-grid');
+  if (grid && typeof CATALOGO_PRODUTOS !== 'undefined') {
+    const listCopy = [...CATALOGO_PRODUTOS];
+    // Embaralha
+    for (let i = listCopy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [listCopy[i], listCopy[j]] = [listCopy[j], listCopy[i]];
+    }
+
+    let allCards = '';
+    listCopy.slice(0, 10).forEach(p => {
+      const precoFmt = 'R$ ' + parseFloat(p.preco).toFixed(2).replace('.', ',');
+      const precoOrigFmt = p.precoOrig ? 'R$ ' + p.precoOrig : '';
+      const imgSrc = p.img || '';
+      allCards += `
+        <a href="produto-${p.id}.html" style="background:#fff;border-radius:6px;overflow:hidden;border:1px solid #ebebeb;text-decoration:none;color:inherit;display:block;width:100%;">
+          <img src="${imgSrc}" style="width:100%;aspect-ratio:1/1;object-fit:cover;background:#f0f0f0;display:block;" onerror="this.style.background='#eee'">
+          <div style="padding:8px;">
+            <div style="font-size:12px;color:#333;line-height:1.35;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${p.nome}</div>
+            <div style="display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin-bottom:3px;">
+              <span style="font-size:14px;font-weight:700;color:#ff2d55;">${precoFmt}</span>
+              ${precoOrigFmt ? `<span style="font-size:11px;color:#999;text-decoration:line-through;">${precoOrigFmt}</span>` : ''}
+            </div>
+            <div style="font-size:10px;color:#999;">${p.vendidos > 0 ? p.vendidos + ' vendido(s)' : ''}</div>
+          </div>
+        </a>`;
+    });
+    grid.innerHTML = allCards;
+  }
+}
+
+function changeQty(id, delta) {
+  const cart = updateQty(id, delta);
+  renderCart();
+}
+
+function handleRemove(id) {
+  removeFromCart(id);
+  showToast('Produto removido do carrinho');
+  renderCart();
+}
+
+function irParaCheckout() {
+  const cart = getCart();
+  if (!cart.length) {
+    showToast('Carrinho vazio!');
+    return;
+  }
+
+  // Se CPF ou Endereço ainda não estiverem salvos no localStorage, solicita preencher
+  const address = localStorage.getItem('user_address');
+  const cpf = localStorage.getItem('user_cpf');
+  if (!address || !cpf) {
+    showToast('Por favor, preencha seus dados de entrega e CPF no topo!');
+    openAddressModal();
+    return;
+  }
+
+  window.location.href = 'checkout.html';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAddress();
+  renderCart();
+  
+  // Fecha modal de endereço ao clicar fora dele
+  const modal = document.getElementById('address-modal-box');
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeAddressModal();
+    });
+  }
+});
+</script>
+</body>
+</html>

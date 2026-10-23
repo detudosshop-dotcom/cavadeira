@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Microsoft Clarity Code Start -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yevctx4wrr");
+</script>
+<!-- Microsoft Clarity Code End -->
+
+<!-- Spotify Pixel Code Start -->
+<script>
+  (function(w, d){
+    var id='spdt-capture', n='script';
+    if (!d.getElementById(id)) {
+      w.spdt = w.spdt || function() { (w.spdt.q = w.spdt.q || []).push(arguments); };
+      var e = d.createElement(n); e.id = id; e.async=1;
+      e.src = 'https://pixel.byspotify.com/ping.min.js';
+      var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+    }
+    w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+    w.spdt('view');
+  })(window, document);
+</script>
+<!-- Spotify Pixel Code End -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copiando Pix...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #111;
+    }
+    .card {
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 90%;
+      width: 320px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #fe2c55;
+    }
+    p {
+      font-size: 14px;
+      color: #666;
+      margin: 0 0 24px;
+      line-height: 1.5;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #fe2c55;
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 15px;
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      cursor: pointer;
+    }
+    .logo {
+      height: 35px;
+      margin-bottom: 25px;
+    }
+    .toggle-btn {
+      background-color: #f7f7f7;
+      color: #444;
+      border: 1px solid #e0e0e0;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 15px;
+      transition: background-color 0.2s, border-color 0.2s;
+      outline: none;
+    }
+    .toggle-btn:hover {
+      background-color: #efefef;
+      border-color: #d0d0d0;
+    }
+    .code-wrapper {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      margin-top: 10px;
+    }
+    .code-wrapper.show {
+      max-height: 120px;
+    }
+    #pixCodeText {
+      width: 100%;
+      height: 80px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #555;
+      background-color: #fafafa;
+      border: 1px dashed #ccc;
+      border-radius: 6px;
+      padding: 8px;
+      box-sizing: border-box;
+      resize: none;
+      word-break: break-all;
+    }
+    .arrow {
+      font-size: 9px;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .arrow.rotated {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="/logotiktok/tiktoklogo.png" alt="TikTok" class="logo">
+    <h2 id="statusTitle">Copiando c&oacute;digo...</h2>
+    <p id="statusDesc" style="margin-bottom: 0;">Por favor, aguarde um instante.</p>
+    
+    <div id="pixCodeContainer" style="display: none;">
+      <button id="togglePixBtn" class="toggle-btn">Ver código copiado <span class="arrow">&#9660;</span></button>
+      <div id="pixCodeWrapper" class="code-wrapper">
+        <textarea id="pixCodeText" readonly onclick="this.select()"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('c');
+      const txid = urlParams.get('txid') || localStorage.getItem('last_main_txid');
+      
+      const title = document.getElementById('statusTitle');
+      const desc = document.getElementById('statusDesc');
+
+      if (!code) {
+        title.innerHTML = 'C&oacute;digo n&atilde;o encontrado';
+        title.style.color = '#111';
+        desc.innerHTML = 'N&atilde;o foi poss&iacute;vel encontrar o c&oacute;digo Pix no link. Volte e copie manualmente.';
+        return;
+      }
+
+      function sucesso() {
+        title.innerHTML = 'C&oacute;digo Copiado!';
+        desc.innerHTML = 'O c&oacute;digo Pix foi copiado com sucesso. Voc&ecirc; j&aacute; pode voltar para colar no aplicativo do seu banco.';
+        showPixContainer();
+      }
+
+      function erro() {
+        title.innerHTML = 'Selecione e Copie';
+        title.style.color = '#111';
+        desc.innerHTML = 'Seu dispositivo bloqueou a c&oacute;pia autom&aacute;tica. Por favor, clique abaixo para ver e copiar o c&oacute;digo.';
+        showPixContainer();
+      }
+
+      function showPixContainer() {
+        const pixContainer = document.getElementById('pixCodeContainer');
+        if (pixContainer) {
+          pixContainer.style.display = 'block';
+          document.getElementById('pixCodeText').value = code;
+        }
+      }
+
+      document.getElementById('togglePixBtn').addEventListener('click', function() {
+        const wrapper = document.getElementById('pixCodeWrapper');
+        const arrow = this.querySelector('.arrow');
+        wrapper.classList.toggle('show');
+        arrow.classList.toggle('rotated');
+      });
+
+      // Tenta copiar
+      try {
+        const textArea = document.createElement("textarea");
+        textArea.value = code;
+        textArea.style.position = "fixed";
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.width = "2em";
+        textArea.style.height = "2em";
+        textArea.style.padding = "0";
+        textArea.style.border = "none";
+        textArea.style.outline = "none";
+        textArea.style.boxShadow = "none";
+        textArea.style.background = "transparent";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        let successful = false;
+        try {
+          successful = document.execCommand('copy');
+        } catch (err) {}
+        
+        document.body.removeChild(textArea);
+
+        if (!successful && navigator.clipboard) {
+          navigator.clipboard.writeText(code).then(() => {
+            sucesso();
+          }).catch(() => {
+            erro();
+          });
+        } else if (successful) {
+          sucesso();
+        } else {
+          erro();
+        }
+      } catch (err) {
+        erro();
+      }
+
+      // Polling de pagamento
+      if (txid) {
+        let pollingInterval = setInterval(async () => {
+          try {
+            const resp = await fetch(`/api/payment-status/${txid}`);
+            const data = await resp.json();
+            const pago = data.status === 'paid' || data.status === 'approved' || data.status === 'PAID' || data.status === 'APPROVED' || data.paid === true;
+            if (pago) {
+              clearInterval(pollingInterval);
+              window.location.href = '/up-up-1';
+            }
+          } catch (e) {}
+        }, 5000);
+      }
+    };
+  </script>
+</body>
+</html>

